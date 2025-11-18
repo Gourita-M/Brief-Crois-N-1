@@ -155,14 +155,6 @@ const users = [
 // global array
   const GlobalArray = [];
 
-// Arrays dyol l cards
-  const AryArchives = [];
-  const AryStaffroom = [];
-  const ArySecurityroom = [];
-  const AryServerroom = [];
-  const AryReception = [];
-  const AryConferenceroom = [];
-
 // linki l url me3a l Photo 
   const photoInput = document.getElementById('photo');
   const photoPreview = document.getElementById('photoPreview');
@@ -214,34 +206,44 @@ const employeelist = document.getElementById("employeelist");
 // List of availlbl Conference Room
 Conferenceroombtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
-    GlobalArray.forEach(u => {
+
+const arraytemp = GlobalArray.filter(user =>
+      ["Manager"].includes(user.role)
+    )
+
+    arraytemp.forEach(u => {
     const newEmplyee = document.createElement('div')
-    newEmplyee.classList = 'flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-600'
+    newEmplyee.classList = 'flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-200'
     newEmplyee.innerHTML = `
             <div class="bg-red-200 w-11 h-11">
                 <img src="./addposi.png" alt="Employee img">
             </div>
             <div>
-                <h1 class="text-[12px]">${u.name}</h1>
-            <div>
-                <button>add</button>
-                <button>remove</button>
+                <h1 class="text-xl">${u.name}</h1>
+            <div class="bg-green-200 rounded-xl">
+                <button class="text-center">add To Room</button>
             </div>
             </div>
    `
    employeelist.appendChild(newEmplyee)
    })
+
 });
 
 closeBtn.addEventListener("click", () => {
-    popup.classList.add("hidden");
+    popup.classList.add("hidden")
     employeelist.innerHTML = ""
 });
 
 const Receptionbtn = document.getElementById("Receptionbtn");
 Receptionbtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
-    GlobalArray.forEach(u => {
+
+const arraytemp = GlobalArray.filter(user =>
+      ["IT Technician"].includes(user.role)
+    )
+
+    arraytemp.forEach(u => {
     const newEmplyee = document.createElement('div')
     newEmplyee.classList = 'flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-600'
     newEmplyee.innerHTML = `
@@ -268,7 +270,12 @@ closeBtn.addEventListener("click", () => {
 const Serverroombtn = document.getElementById("Serverroombtn");
 Serverroombtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
-    GlobalArray.forEach(u => {
+
+    const arraytemp = GlobalArray.filter(user =>
+      ["IT Technician","Manager"].includes(user.role)
+    )
+
+    arraytemp.forEach(u => {
     const newEmplyee = document.createElement('div')
     newEmplyee.classList = 'flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-600'
     newEmplyee.innerHTML = `
@@ -295,7 +302,12 @@ closeBtn.addEventListener("click", () => {
 const Securityroombtn = document.getElementById("Securityroombtn");
 Securityroombtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
-    GlobalArray.forEach(u => {
+
+    const arraytemp = GlobalArray.filter(user =>
+      ["IT Technician","Manager"].includes(user.role)
+    )
+
+    arraytemp.forEach(u => {
     const newEmplyee = document.createElement('div')
     newEmplyee.classList = 'flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-600'
     newEmplyee.innerHTML = `
@@ -322,7 +334,12 @@ closeBtn.addEventListener("click", () => {
 const Staffroombtn = document.getElementById("Staffroombtn");
 Staffroombtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
-    GlobalArray.forEach(u => {
+
+const arraytemp = GlobalArray.filter(user =>
+      ["IT Technician","Manager"].includes(user.role)
+    )
+    
+    arraytemp.forEach(u => {
     const newEmplyee = document.createElement('div')
     newEmplyee.classList = 'flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-600'
     newEmplyee.innerHTML = `
@@ -349,7 +366,12 @@ closeBtn.addEventListener("click", () => {
 const Archivesroombtn = document.getElementById("Archivesroombtn");
 Archivesroombtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
-    GlobalArray.forEach(u => {
+    
+const arraytemp = GlobalArray.filter(user =>
+      ["IT Technician","Manager"].includes(user.role)
+    )
+
+    arraytemp.forEach(u => {
     const newEmplyee = document.createElement('div')
     newEmplyee.classList = 'flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-600'
     newEmplyee.innerHTML = `
