@@ -23,7 +23,7 @@
         </div>
         <div class="flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-600">
             <div class="bg-red-200 w-11 h-11">
-                <img src="./addposi.png" alt="Employee image">
+                <img src="./addposi.png" alt="Employee img">
             </div>
             <div>
                 <h1 class="text-[12px]">Mouad Gourita</h1>
@@ -82,39 +82,58 @@
         </div>
     </aside>
     <main id="container" class="lg:h-[98vh] w-[99%] h-[88vh] bg-white rounded-lg m-1 shadow-lg&">
-        <div class="item1 flex flex-col items-center justify-between p-2">
+        <!--Popup dyal List of Emplyee-->
+        <!-- Available Employees Popup -->
+<div id="availableEmployeesPopup"
+     class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+
+    <div class="rounded-xl p-6 bg-white w-full max-w-lg max-h-[90%] overflow-y-auto">
+        
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold">Available Employees</h2>
+            <button id="closeEmployeesPopup" class="text-gray-600 text-2xl hover:text-red-600">&times;</button>
+        </div>
+
+        <div id="employeelist" class="flex flex-col gap-3">
+            <!-- employee list here -->
+        </div>
+
+    </div>
+</div>
+
+        <div id="Conferenceroom" class="item1 flex flex-col items-center justify-between p-2">
             <h1>Conference room</h1>
-            <button>
+            <button id="Conferenceroombtn">
                 <img class="w-7 h-7" src="./addposi.png" alt="add icon">
             </button>
         </div>
-        <div class="item2 flex flex-col items-center justify-between p-2" ">
+        <div id="Reception" class="item2 flex flex-col items-center justify-between p-2" ">
             <h1>Reception</h1>
-            <button>
+            <button id="Receptionbtn">
                 <img class="w-7 h-7" src="./addposi.png" alt="add icon">
             </button>
         </div>
-        <div class="item3 flex flex-col items-center justify-between p-2 "">
+        <div id="Serverroom" class="item3 flex flex-col items-center justify-between p-2 "">
             <h1>Server room</h1>
-            <button>
+            <button id="Serverroombtn">
                 <img class="w-7 h-7" src="./addposi.png" alt="add icon">
             </button>
         </div>
-        <div class="item4 flex flex-col items-center justify-between p-2" ">
+        <div id="Securityroom" class="item4 flex flex-col items-center justify-between p-2" ">
             <h1>Security room</h1>
-            <button>
+            <button id="Securityroombtn">
                 <img class="w-7 h-7" src="./addposi.png" alt="add icon">
             </button>
         </div>
-        <div class="item5 flex flex-col items-center justify-between p-2 "">
+        <div id="Staffroom" class="item5 flex flex-col items-center justify-between p-2 "">
             <h1>Staff room</h1>
-            <button>
+            <button id="Staffroombtn">
                 <img class="w-7 h-7" src="./addposi.png" alt="add icon">
             </button>
         </div>
-        <div class="item6 flex flex-col items-center justify-between p-2" ">
+        <div id="Archivesroom" class="item6 flex flex-col items-center justify-between p-2" ">
             <h1>Archives Room</h1>
-            <button>
+            <button id="Archivesroombtn">
                 <img class="w-7 h-7" src="./addposi.png" alt="add icon">
             </button>
       </div>
