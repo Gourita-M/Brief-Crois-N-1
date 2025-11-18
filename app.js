@@ -216,7 +216,7 @@ const arraytemp = GlobalArray.filter(user =>
     newEmplyee.classList = 'flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-200'
     newEmplyee.innerHTML = `
             <div class="bg-red-200 w-11 h-11">
-                <img src="./addposi.png" alt="Employee img">
+                <img src="../addposi.png" alt="Employee img">
             </div>
             <div>
                 <h1 class="text-xl">${u.name}</h1>
