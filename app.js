@@ -1,6 +1,6 @@
 //for tests 
 
-const employees = [
+const users = [
   {
     name: "Emma Johnson",
     role: "Manager",
@@ -199,14 +199,6 @@ const employees = [
       div.remove();
     });
   });
-
-  
-const users = [
-  { id: 1, name: "Ali", role: "Manager" },
-  { id: 2, name: "Sara", role: "Employee" },
-  { id: 3, name: "John", role: "Manager" },
-  { id: 4, name: "Mina", role: "Intern" }
-];
 
 // Push only Managers
 users.forEach(u => GlobalArray.push(u));
