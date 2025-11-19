@@ -213,16 +213,16 @@ const arraytemp = GlobalArray.filter(user =>
 
     arraytemp.forEach(u => {
     const newEmplyee = document.createElement('div')
-    newEmplyee.classList = 'flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-200'
+    newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[90%] h-20 m-2 hover:shadow-lg transition'
     newEmplyee.innerHTML = `
-            <div class="bg-red-200 w-11 h-11">
-                <img src="../addposi.png" alt="Employee img">
-            </div>
-            <div>
-                <h1 class="text-xl">${u.name}</h1>
-            <div class="bg-green-200 rounded-xl">
-                <button class="text-center">add To Room</button>
-            </div>
+            <img src="./addposi.png" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+
+            <div class="flex flex-col">
+                <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+
+                <button class="mt-1 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-700 transition">
+                    Add to Room
+                </button>
             </div>
    `
    employeelist.appendChild(newEmplyee)
@@ -245,17 +245,16 @@ const arraytemp = GlobalArray.filter(user =>
 
     arraytemp.forEach(u => {
     const newEmplyee = document.createElement('div')
-    newEmplyee.classList = 'flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-600'
+    newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[90%] h-20 m-2 hover:shadow-lg transition'
     newEmplyee.innerHTML = `
-            <div class="bg-red-200 w-11 h-11">
-                <img src="./addposi.png" alt="Employee img">
-            </div>
-            <div>
-                <h1 class="text-[12px]">${u.name}</h1>
-            <div>
-                <button>add</button>
-                <button>remove</button>
-            </div>
+            <img src="./addposi.png" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+
+            <div class="flex flex-col">
+                <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+
+                <button class="mt-1 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-700 transition">
+                    Add to Room
+                </button>
             </div>
    `
    employeelist.appendChild(newEmplyee)
@@ -277,17 +276,16 @@ Serverroombtn.addEventListener("click", () => {
 
     arraytemp.forEach(u => {
     const newEmplyee = document.createElement('div')
-    newEmplyee.classList = 'flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-600'
+    newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[90%] h-20 m-2 hover:shadow-lg transition'
     newEmplyee.innerHTML = `
-            <div class="bg-red-200 w-11 h-11">
-                <img src="./addposi.png" alt="Employee img">
-            </div>
-            <div>
-                <h1 class="text-[12px]">${u.name}</h1>
-            <div>
-                <button>add</button>
-                <button>remove</button>
-            </div>
+            <img src="./addposi.png" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+
+            <div class="flex flex-col">
+                <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+
+                <button class="mt-1 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-700 transition">
+                    Add to Room
+                </button>
             </div>
    `
    employeelist.appendChild(newEmplyee)
@@ -309,17 +307,16 @@ Securityroombtn.addEventListener("click", () => {
 
     arraytemp.forEach(u => {
     const newEmplyee = document.createElement('div')
-    newEmplyee.classList = 'flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-600'
+    newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[90%] h-20 m-2 hover:shadow-lg transition'
     newEmplyee.innerHTML = `
-            <div class="bg-red-200 w-11 h-11">
-                <img src="./addposi.png" alt="Employee img">
-            </div>
-            <div>
-                <h1 class="text-[12px]">${u.name}</h1>
-            <div>
-                <button>add</button>
-                <button>remove</button>
-            </div>
+            <img src="./addposi.png" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+
+            <div class="flex flex-col">
+                <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+
+                <button class="mt-1 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-700 transition">
+                    Add to Room
+                </button>
             </div>
    `
    employeelist.appendChild(newEmplyee)
