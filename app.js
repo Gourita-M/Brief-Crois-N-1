@@ -151,10 +151,23 @@ const users = [
   const Serverroom = document.getElementById('Serverroom');
   const Reception = document.getElementById('Reception');
   const Conferenceroom = document.getElementById('Conferenceroom');
+  const aside = document.getElementById('aside');
 
 // global array
   const GlobalArray = [];
+  // users.forEach(u => GlobalArray.push(u));
+  
+// Form
+const addForm = document.getElementById('addForm');
+const addFormbtn = document.getElementById('addFormbtn');
+const closeform = document.getElementById('closeform')
 
+addFormbtn.addEventListener('click', ()=> {
+  addForm.classList.remove('hidden')
+})
+closeform.addEventListener('click', ()=> {
+  addForm.classList.add('hidden')
+})
 // linki l url me3a l Photo 
   const photoInput = document.getElementById('photo');
   const photoPreview = document.getElementById('photoPreview');
@@ -175,7 +188,7 @@ const users = [
     div.className = "flex gap-2 items-center";
 
     div.innerHTML = `
-      <input type="text"
+      <input id="formexper" type="text"
              class="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
              placeholder="Experience (ex: 2 years at Google)">
       <button type="button"
@@ -191,9 +204,57 @@ const users = [
       div.remove();
     });
   });
+//nakhod l values
+const addEmployee = document.getElementById('addEmployee');
 
+employeeForm.addEventListener('submit', (e)=>{
+e.preventDefault();
+  const formname = document.getElementById('formname');
+  const formphone = document.getElementById('formphone');
+  const formemail = document.getElementById('formemail');
+  const formrole = document.getElementById('formrole');
+  const photo = document.getElementById('photo');
+  const formexper = document.getElementById('formexper');
+
+  console.log(formname.value)
+  console.log(formphone.value)
+  console.log(formemail.value)
+  console.log(formrole.value)
+  console.log(photo.value)
+  console.log(formexper.value)
+
+  GlobalArray.push({
+    name: `${formname.value.trim()}`,
+    role: `${formrole.value.trim()}`,
+    photo: `${photo.value.trim()}`,
+    email: `${formemail.value.trim()}`,
+    phone: `${formphone.value.trim()}`,
+    Experiences: `${formexper.value.trim()}`,
+  })
+  console.log(GlobalArray)
+  GlobalArray.forEach(u => {
+    const counter = 1 ;
+    const newdiv = document.createElement('div')
+    newdiv.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 lg:w-[90%] w-[95%] lg:h-20 m-2 hover:shadow-lg transition'
+    newdiv.innerHTML = `  
+        <img src="./Images/addposi.png" class="lg:w-12 lg:h-12 w-10 h-10 rounded-full object-cover border" alt="Employee img">
+
+        <div class="flex flex-col">
+          <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+          <button id="delet${counter}" class="mt-1 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-700 transition">
+                      Remove
+          </button>
+        </div>
+    `
+    aside.appendChild(newdiv)
+    const deletebtn = getElementById(`'delet'${counter}`)
+    console.log(delet+'${counter}')
+    deletebtn.addEventListener('click', (e)=>{
+      e.target.remove()
+    })
+  })
+})
 // Push only Managers
-users.forEach(u => GlobalArray.push(u));
 
 console.log(GlobalArray);
 
@@ -207,6 +268,7 @@ const employeelist = document.getElementById("employeelist");
 Conferenceroombtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
 
+//filter
 const arraytemp = GlobalArray.filter(user =>
       ["Manager"].includes(user.role)
     )
@@ -220,7 +282,7 @@ const arraytemp = GlobalArray.filter(user =>
             <div class="flex flex-col">
                 <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
 
-                <button class="mt-1 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-700 transition">
+                <button add class="mt-1 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-700 transition">
                     Add to Room
                 </button>
             </div>
@@ -338,17 +400,16 @@ const arraytemp = GlobalArray.filter(user =>
     
     arraytemp.forEach(u => {
     const newEmplyee = document.createElement('div')
-    newEmplyee.classList = 'flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-600'
+    newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[90%] h-20 m-2 hover:shadow-lg transition'
     newEmplyee.innerHTML = `
-            <div class="bg-red-200 w-11 h-11">
-                <img src="./addposi.png" alt="Employee img">
-            </div>
-            <div>
-                <h1 class="text-[12px]">${u.name}</h1>
-            <div>
-                <button>add</button>
-                <button>remove</button>
-            </div>
+            <img src="./addposi.png" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+
+            <div class="flex flex-col">
+                <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+
+                <button class="mt-1 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-700 transition">
+                    Add to Room
+                </button>
             </div>
    `
    employeelist.appendChild(newEmplyee)
@@ -370,17 +431,16 @@ const arraytemp = GlobalArray.filter(user =>
 
     arraytemp.forEach(u => {
     const newEmplyee = document.createElement('div')
-    newEmplyee.classList = 'flex lg:w-36 rounded-xl h-16 gap-2 justify-center m-2 items-center bg-red-600'
+    newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[90%] h-20 m-2 hover:shadow-lg transition'
     newEmplyee.innerHTML = `
-            <div class="bg-red-200 w-11 h-11">
-                <img src="./addposi.png" alt="Employee img">
-            </div>
-            <div>
-                <h1 class="text-[12px]">${u.name}</h1>
-            <div>
-                <button>add</button>
-                <button>remove</button>
-            </div>
+            <img src="./addposi.png" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+
+            <div class="flex flex-col">
+                <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+
+                <button class="mt-1 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-700 transition">
+                    Add to Room
+                </button>
             </div>
    `
    employeelist.appendChild(newEmplyee)
