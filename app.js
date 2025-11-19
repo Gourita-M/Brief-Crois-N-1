@@ -204,24 +204,19 @@ closeform.addEventListener('click', ()=> {
       div.remove();
     });
   });
+
 //nakhod l values
 const addEmployee = document.getElementById('addEmployee');
 
 employeeForm.addEventListener('submit', (e)=>{
 e.preventDefault();
+addForm.classList.add('hidden')
   const formname = document.getElementById('formname');
   const formphone = document.getElementById('formphone');
   const formemail = document.getElementById('formemail');
   const formrole = document.getElementById('formrole');
   const photo = document.getElementById('photo');
   const formexper = document.getElementById('formexper');
-
-  console.log(formname.value)
-  console.log(formphone.value)
-  console.log(formemail.value)
-  console.log(formrole.value)
-  console.log(photo.value)
-  console.log(formexper.value)
 
   GlobalArray.push({
     name: `${formname.value.trim()}`,
@@ -231,29 +226,37 @@ e.preventDefault();
     phone: `${formphone.value.trim()}`,
     Experiences: `${formexper.value.trim()}`,
   })
-  console.log(GlobalArray)
-  GlobalArray.forEach(u => {
-    const counter = 1 ;
-    const newdiv = document.createElement('div')
-    newdiv.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 lg:w-[90%] w-[95%] lg:h-20 m-2 hover:shadow-lg transition'
-    newdiv.innerHTML = `  
-        <img src="./Images/addposi.png" class="lg:w-12 lg:h-12 w-10 h-10 rounded-full object-cover border" alt="Employee img">
+  // Needs To be fixed
+//   console.log(GlobalArray)
+//   let counter = 1 ;
+  
+//     const newdiv = document.createElement('div')
+//     newdiv.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 lg:w-[90%] w-[95%] lg:h-20 m-2 hover:shadow-lg transition'
+//     newdiv.id = `div${counter}`
+//     newdiv.innerHTML = `  
+//         <img src="./Images/addposi.png" class="lg:w-12 lg:h-12 w-10 h-10 rounded-full object-cover border" alt="Employee img">
 
-        <div class="flex flex-col">
-          <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
-          <button id="delet${counter}" class="mt-1 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-700 transition">
-                      Remove
-          </button>
-        </div>
-    `
-    aside.appendChild(newdiv)
-    const deletebtn = getElementById(`'delet'${counter}`)
-    console.log(delet+'${counter}')
-    deletebtn.addEventListener('click', (e)=>{
-      e.target.remove()
-    })
-  })
-})
+//         <div class="flex flex-col">
+//           <h1 class="text-sm font-semibold text-gray-800">${formname.name}</h1>
+//           <button id="btn${counter}" class="mt-1 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-700 transition">
+//                       Remove
+//           </button>
+//         </div>
+//     `
+//     aside.appendChild(newdiv)
+//     const deletebtn = document.getElementById(`btn${counter}`)
+//     deletebtn.addEventListener('click', ()=>{
+//     const divtoremove = document.getElementById(`div${counter}`);
+//     divtoremove.remove()
+//     })
+//     formexper.value = "";
+//     photo.value = "";
+//     formrole.value = "";
+//     formemail.value = "";
+//     formname.value = "";
+//     formphone.value = "";
+//     counter++;
+// })
 // Push only Managers
 
 console.log(GlobalArray);
