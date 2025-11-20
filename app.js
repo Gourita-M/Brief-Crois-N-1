@@ -155,7 +155,7 @@ const users = [
 
 // global array
   const GlobalArray = [];
-  // users.forEach(u => GlobalArray.push(u));
+  users.forEach(u => GlobalArray.push(u));
   
 // Form
 const addForm = document.getElementById('addForm');
@@ -256,11 +256,13 @@ addForm.classList.add('hidden')
 //     formname.value = "";
 //     formphone.value = "";
 //     counter++;
-// })
+})
+
 // Push only Managers
 
 console.log(GlobalArray);
 
+let emplyeeaddid = 1
 // For emplyee list Pop up
 const Conferenceroombtn = document.getElementById('Conferenceroombtn');
 const popup = document.getElementById("availableEmployeesPopup");
@@ -268,31 +270,55 @@ const closeBtn = document.getElementById("closeEmployeesPopup");
 const employeelist = document.getElementById("employeelist");
 
 // List of availlbl Conference Room
+let confrencercounter = 0 ;
 Conferenceroombtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
-
+// had l if dakhal waset maneha koleshi fash tesali
+if(confrencercounter === 6 ){
+  alert('Only 4 People are allowed to Enter this Room')
+  popup.classList.add("hidden")
+}
+else{
 //filter
 const arraytemp = GlobalArray.filter(user =>
       ["Manager"].includes(user.role)
     )
 
-    arraytemp.forEach(u => {
-    const newEmplyee = document.createElement('div')
-    newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[90%] h-20 m-2 hover:shadow-lg transition'
-    newEmplyee.innerHTML = `
-            <img src="./addposi.png" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+  arraytemp.forEach(u => {
+  const currentId = emplyeeaddid; // store the value
 
-            <div class="flex flex-col">
-                <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+  const newEmplyee = document.createElement('div');
+  newEmplyee.id = `d-${currentId}`;
+  newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[90%] h-20 m-2 hover:shadow-lg transition';
 
-                <button add class="mt-1 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-700 transition">
-                    Add to Room
-                </button>
-            </div>
-   `
-   employeelist.appendChild(newEmplyee)
-   })
+  newEmplyee.innerHTML = `
+      <img src="./addposi.png" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+      <div class="flex flex-col">
+          <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+          <button id="addd${currentId}" class="mt-1 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-700 transition">
+              Add to Room
+          </button>
+      </div>
+  `;
+  employeelist.appendChild(newEmplyee);
 
+  const addBtn = document.getElementById(`addd${currentId}`);
+
+  addBtn.addEventListener('click', () => {
+    console.log(document.getElementById(`d-${currentId}`))
+    const moved = document.getElementById(`d-${currentId}`);
+    document.getElementById(`d-${currentId}`).remove();
+ // arraytemp.splice(indexToRemove, 1);
+    console.log(arraytemp)
+    Conferenceroom.appendChild(moved);
+    
+
+    confrencercounter++;
+  });
+
+  emplyeeaddid++; // increment AFTER binding events
+});
+}
 });
 
 closeBtn.addEventListener("click", () => {
