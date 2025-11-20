@@ -319,7 +319,7 @@ Conferenceroombtn.addEventListener("click", () => {
         newEmplyee.id = `d-${currentId}`;
         newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[90%] h-20 m-2 hover:shadow-lg transition';
         newEmplyee.innerHTML = `
-            <img src="${u.photo || "./addposi.png"}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+            <img src="${u.photo}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
             <div class="flex justify-between w-[100%] p-5">
               <div class="flex flex-col">
                   <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
@@ -784,3 +784,35 @@ closeBtn.addEventListener("click", () => {
     popup.classList.add("hidden");
     employeelist.innerHTML = "";
 });
+
+
+//user info 
+
+/* <section class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="w-[50%] lg:w-[30%] bg-white shadow-lg rounded-2xl overflow-hidden ring-1 ring-slate-200">
+                <div class="p-6 flex gap-4 items-center">
+                    <img src="https://i.pravatar.cc/100?img=12" alt="Profile avatar" class="w-20 h-20 rounded-full object-cover border-2 border-slate-100 shadow-sm" />
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-lg font-semibold text-slate-900" id="fullName">Mouad Gourita</h2>
+                            <span class="text-sm text-slate-500" id="role">Role</span>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-600 flex items-center gap-2">
+                            <img class="w-6 h-5" src="./Images/mailpng.png" alt="email icon">
+                            Mouad.gourita@gmail.com
+                        </p>
+                        <div class="mt-4">
+                            <div class="flex flex-col items-center justify-between text-xs text-slate-500">
+                                <span>Experience</span>
+                                <h3>Benn Working as dadadada</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> */
+
+function userinfo(username, email, image, experia){
+  const newdiv = document.createElement('div');
+  
+}
