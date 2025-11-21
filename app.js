@@ -177,6 +177,80 @@ const users = [
   const GlobalArray = [];
   users.forEach(u => GlobalArray.push(u));
   
+//
+let counter1 = 1
+let addingcounter = 1
+GlobalArray.forEach( u => {
+
+const znewdiv = document.createElement('div')
+    znewdiv.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl h-24 p-3 lg:w-[100%] w-[95%] lg:h-20 m-2 hover:shadow-lg transition'
+    znewdiv.id = `yy${counter1}`
+    znewdiv.innerHTML = `  
+        <img src="${u.photo}" class="w-10 h-10 rounded-full object-cover border" alt="Employee img">
+        <div class="flex justify-between w-[100%] p-1">
+        <div class="flex flex-col items-center gap-2">
+          <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+          <h2 class="text-sm font-semibold text-gray-800">${u.role}</h2>
+        <div>
+          <button id="adding${counter1}">
+            Add
+          </button>
+          <button type="button" id="removing${counter1}">
+            <img class="h-5 w-5" src="./Images/supprimer.png" alt="close btn">
+          </button>
+        </div>
+    `
+    aside.appendChild(znewdiv)
+    const remo = document.getElementById(`removing${counter1}`)
+    const yy = document.getElementById(`yy${counter1}`)
+    remo.addEventListener('click', ()=> {
+       yy.remove()
+       console.log(GlobalArray.indexOf(u))
+       const index = GlobalArray.indexOf(u); 
+        GlobalArray.splice(index, 1);
+         console.log(GlobalArray)
+    })
+    const addw = document.getElementById(`adding${counter1}`)
+    addw.addEventListener('click', ()=> {
+      if(confrencercounter >= 6 ){
+                alert('Only 6 People are allowed to Enter this Room');
+                return;
+            }
+      if(u.inroom === 'True'){
+        alert('already in room')
+        return
+      }
+            yy.innerHTML = `
+            <div class="flex items-center justify-between w-full p-3 ">
+              <div class="flex items-center gap-3">
+                <button id="useinfo${counter1}" class="flex items-center gap-3">
+                  <img src="${u.photo}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+                  <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+                </button>
+              </div>
+
+              <button id="remove${counter1}">
+                <img class="h-5 w-5" src="./Images/supprimer.png" alt="close btn">
+              </button>
+            </div>
+        `;
+            Conferenceroom.appendChild(yy);
+            confrencercounter++;
+            u.inroom = "True"
+            console.log(u.inroom)
+    })
+ counter1++;
+})
+
+//users info 
+const infoname = document.getElementById('infoname')
+const inforole = document.getElementById('inforole')
+const infoemail = document.getElementById('infoemail')
+const infophone = document.getElementById('infophone')
+const userimage = document.getElementById('userimage')
+
+
+
 // Form
 const addForm = document.getElementById('addForm');
 const addFormbtn = document.getElementById('addFormbtn');
@@ -205,18 +279,29 @@ closeform.addEventListener('click', ()=> {
   addBtn.addEventListener("click", () => {
     const div = document.createElement("div");
 
-    div.className = "flex gap-2 items-center";
+    div.className = "flex gap-2 items-center mt-2";
 
     div.innerHTML = `
+      <div class="flex flex-col w-[80%] gap-4 ml-10">
       <input id="formexper" type="text"
-             class="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-             placeholder="Experience (ex: 2 years at Google)">
+             class="Description flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+             placeholder="Experience (ex: 2 years at Google)" required>
+      <input type="text"
+             class="Description flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+             placeholder="Description" required>
+      <div class="flex justify-around items-center">
+        <label for="start">Start</label>
+        <input id="start" type="date" class="border ml-3 mr-3 border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+        <label for="end">End</label>
+        <input id="end" type="date" class="border ml-3 border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+      </div>
+    </div>
+    
       <button type="button"
-              class="px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 remove-exp">
+              class="w-10 px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 remove-exp">
         X
       </button>
     `;
-
     container.appendChild(div);
 
     // Remove experiance
@@ -225,57 +310,60 @@ closeform.addEventListener('click', ()=> {
     });
   });
 
+
 //nakhod l values
 const addEmployee = document.getElementById('addEmployee');
 
 employeeForm.addEventListener('submit', (e)=>{
 e.preventDefault();
 addForm.classList.add('hidden')
-  const formname = document.getElementById('formname');
-  const formphone = document.getElementById('formphone');
-  const formemail = document.getElementById('formemail');
-  const formrole = document.getElementById('formrole');
-  const photo = document.getElementById('photo');
+  const formname = document.getElementById('formname').value.trim();
+  const formphone = document.getElementById('formphone').value.trim();
+  const formemail = document.getElementById('formemail').value.trim();
+  const formrole = document.getElementById('formrole').value.trim();
+  const photo = document.getElementById('photo').value.trim();
   const formexper = document.getElementById('formexper');
 
   GlobalArray.push({
-    name: `${formname.value.trim()}`,
-    role: `${formrole.value.trim()}`,
-    photo: `${photo.value.trim()}`,
-    email: `${formemail.value.trim()}`,
-    phone: `${formphone.value.trim()}`,
+    name: `${formname}`,
+    role: `${formrole}`,
+    photo: `${photo}`,
+    email: `${formemail}`,
+    phone: `${formphone}`,
     Experiences: `${formexper.value.trim()}`,
+    Experiencesdescription: ``,
+    Experiencesdate: ``,
   })
-  // Needs To be fixed
-//   console.log(GlobalArray)
-//   let counter = 1 ;
-  
-//     const newdiv = document.createElement('div')
-//     newdiv.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 lg:w-[90%] w-[95%] lg:h-20 m-2 hover:shadow-lg transition'
-//     newdiv.id = `div${counter}`
-//     newdiv.innerHTML = `  
-//         <img src="./Images/addposi.png" class="lg:w-12 lg:h-12 w-10 h-10 rounded-full object-cover border" alt="Employee img">
 
-//         <div class="flex flex-col">
-//           <h1 class="text-sm font-semibold text-gray-800">${formname.name}</h1>
-//           <button id="btn${counter}" class="mt-1 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-700 transition">
-//                       Remove
-//           </button>
-//         </div>
-//     `
-//     aside.appendChild(newdiv)
-//     const deletebtn = document.getElementById(`btn${counter}`)
-//     deletebtn.addEventListener('click', ()=>{
-//     const divtoremove = document.getElementById(`div${counter}`);
-//     divtoremove.remove()
-//     })
-//     formexper.value = "";
-//     photo.value = "";
-//     formrole.value = "";
-//     formemail.value = "";
-//     formname.value = "";
-//     formphone.value = "";
-//     counter++;
+  console.log(GlobalArray)
+  let counter = 1 ;
+  
+    const newdiv = document.createElement('div')
+    newdiv.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl h-24 p-3 lg:w-[90%] w-[95%] lg:h-20 m-2 hover:shadow-lg transition'
+    newdiv.id = `div${counter}`
+    newdiv.innerHTML = `  
+        <img src="${photo}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+                <div class="flex justify-between w-[100%] p-1">
+                <div class="flex flex-col items-center gap-5">
+                    <h1 class="text-sm font-semibold text-gray-800">${formname}</h1>
+                    <h2>${formrole}</h2>
+                    <button id="btn${counter}">
+                        <img class="w-5 h-5" src="./Images/addposi.png" alt="add btn">
+                    </button>
+    `
+    aside.appendChild(newdiv)
+    const deletebtn = document.getElementById(`btn${counter}`)
+    deletebtn.addEventListener('click', ()=>{
+    const divtoremove = document.getElementById(`div${counter}`);
+    divtoremove.remove()
+    })
+    formexper.value = "";
+    photo.value = "";
+    formrole.value = "";
+    formemail.value = "";
+    formname.value = "";
+    formphone.value = "";
+    counter++;
 })
 
 // Push only Managers
@@ -305,19 +393,19 @@ Conferenceroombtn.addEventListener("click", () => {
     employeelist.innerHTML = "";
 
     const arraytemp = GlobalArray.filter(user =>
-        user.role === "Manager" && 
-        ![...Conferenceroom.children].some(c => c.querySelector("h1").textContent === user.name)
-    );
+    user.role === "Manager" || user.role === "IT Technician"
+);
+
 
     arraytemp.forEach(u => {
-      if(u.inroom === 'True'){ //inroom: "False",
+      if(u.inroom === 'True'){ 
           return
       }
-      else{
+      else{ 
         const currentId = emplyeeaddid; 
         const newEmplyee = document.createElement('div');
         newEmplyee.id = `d-${currentId}`;
-        newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[90%] h-20 m-2 hover:shadow-lg transition';
+        newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[100%] h-20 m-2 hover:shadow-lg transition';
         newEmplyee.innerHTML = `
             <img src="${u.photo}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
             <div class="flex justify-between w-[100%] p-5">
@@ -330,27 +418,48 @@ Conferenceroombtn.addEventListener("click", () => {
               <h2>${u.role}</h2>
             </div>
         `;
-
         employeelist.appendChild(newEmplyee);
-        const addBtn = document.getElementById(`addd${currentId}`);
+
+      const addBtn = document.getElementById(`addd${currentId}`);
         addBtn.addEventListener('click', () => {
             if(confrencercounter >= 6 ){
                 alert('Only 6 People are allowed to Enter this Room');
                 return;
             }
             newEmplyee.innerHTML = `
-            <img src="${u.photo || "./addposi.png"}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
-            <div class="flex flex-col">
-                <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
-                <button id="remove${currentId}" class="mt-1 bg-red-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-red-700 transition">
-                    Remove
+            <div class="flex items-center justify-between w-full p-3 ">
+              <div class="flex items-center gap-3">
+                <button id="useinfo${currentId}" class="flex items-center gap-3">
+                  <img src="${u.photo}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+                  <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
                 </button>
+              </div>
+
+              <button id="remove${currentId}">
+                <img class="h-5 w-5" src="./Images/supprimer.png" alt="close btn">
+              </button>
             </div>
         `;
             Conferenceroom.appendChild(newEmplyee);
             confrencercounter++;
             u.inroom = "True"
             console.log(u.inroom)
+ //user info
+            const personalinfo = document.getElementById('personalinfo');
+            const infobtn = document.getElementById(`useinfo${currentId}`)
+            const infoclose = document.getElementById('infoclose');
+                infobtn.addEventListener('click', ()=>{
+                      userimage.src = u.photo
+                      infoname.innerHTML = u.name
+                      inforole.innerHTML = u.role
+                      infoemail.innerHTML = u.email
+                      infophone.innerHTML = u.phone
+                  personalinfo.classList.remove('hidden')
+                infoclose.addEventListener('click', ()=>{
+                  personalinfo.classList.add('hidden')
+                  })
+                })
+   
             const removebbt = document.getElementById(`remove${currentId}`)
             removebbt.addEventListener('click', (e)=> {
                 document.getElementById(`d-${currentId}`).remove()
@@ -422,23 +531,44 @@ Receptionbtn.addEventListener("click", () => {
                 return;
             }
             newEmplyee.innerHTML = `
-            <img src="${u.photo || "./addposi.png"}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
-            <div class="flex flex-col">
-                <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
-                <button id="removeres${currentId}" class="mt-1 bg-red-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-red-700 transition">
-                    Remove
-                </button>
+            <div class="flex justify-between items-start w-full">
+              <div class="flex items-center gap-3">
+                  <button id="useinfo${currentId}">
+                    <img src="${u.photo || './addposi.png'}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+                    <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+                  </button>
+              </div>
+              <button id="removeres${currentId}" class="bg-red-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-red-700 transition">
+                  X
+              </button>
             </div>
         `;
             Reception.appendChild(newEmplyee);
             Receptioncounter++;
             u.inroom = "True"
+//user info
+            const personalinfo = document.getElementById('personalinfo');
+            const infobtn = document.getElementById(`useinfo${currentId}`)
+            const infoclose = document.getElementById('infoclose');
+                infobtn.addEventListener('click', ()=>{
+                      userimage.src = u.photo
+                      infoname.innerHTML = u.name
+                      inforole.innerHTML = u.role
+                      infoemail.innerHTML = u.email
+                      infophone.innerHTML = u.phone
+                  personalinfo.classList.remove('hidden')
+                infoclose.addEventListener('click', ()=>{
+                  personalinfo.classList.add('hidden')
+                  })
+                })
+
             const removebbt = document.getElementById(`removeres${currentId}`)
             removebbt.addEventListener('click', (e)=> {
                 document.getElementById(`d--${currentId}`).remove()
                 Receptioncounter--;
                 u.inroom = "False"
                 console.log(u.inroom)
+                
             })
  
         });
@@ -504,17 +634,37 @@ Serverroombtn.addEventListener("click", () => {
                 return;
             }
             newEmplyee.innerHTML = `
-            <img src="${u.photo || "./addposi.png"}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
-            <div class="flex flex-col">
-                <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
-                <button id="removeser${currentId}" class="mt-1 bg-red-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-red-700 transition">
-                    Remove
-                </button>
+            <div class="flex justify-between items-start w-full">
+              <div class="flex items-center gap-3">
+                  <button id="useinfo${currentId}">
+                    <img src="${u.photo || './addposi.png'}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+                    <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+                  </button>
+              </div>
+              <button id="removeser${currentId}" class="bg-red-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-red-700 transition">
+                  X
+              </button>
             </div>
         `;
             Serverroom.appendChild(newEmplyee);
             Serverroomcounter++;
             u.inroom = "True"
+  //user info
+            const personalinfo = document.getElementById('personalinfo');
+            const infobtn = document.getElementById(`useinfo${currentId}`)
+            const infoclose = document.getElementById('infoclose');
+                infobtn.addEventListener('click', ()=>{
+                      userimage.src = u.photo
+                      infoname.innerHTML = u.name
+                      inforole.innerHTML = u.role
+                      infoemail.innerHTML = u.email
+                      infophone.innerHTML = u.phone
+                  personalinfo.classList.remove('hidden')
+                infoclose.addEventListener('click', ()=>{
+                  personalinfo.classList.add('hidden')
+                  })
+                })
+
             const removebbt = document.getElementById(`removeser${currentId}`)
             removebbt.addEventListener('click', (e)=> {
                 document.getElementById(`id-${currentId}`).remove()
@@ -586,17 +736,37 @@ Securityroombtn.addEventListener("click", () => {
                 return;
             }
             newEmplyee.innerHTML = `
-            <img src="${u.photo || "./addposi.png"}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
-            <div class="flex flex-col">
-                <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
-                <button id="removesecurity${currentId}" class="mt-1 bg-red-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-red-700 transition">
-                    Remove
-                </button>
+            <div class="flex justify-between items-start w-full">
+              <div class="flex items-center gap-3">
+                  <button id="useinfo${currentId}">
+                    <img src="${u.photo || './addposi.png'}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+                    <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+                  </button>
+              </div>
+              <button id="removesecurity${currentId}" class="bg-red-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-red-700 transition">
+                  X
+              </button>
             </div>
         `;
             Securityroom.appendChild(newEmplyee);
             securityroomcounter++;
             u.inroom = "True"
+//user info
+            const personalinfo = document.getElementById('personalinfo');
+            const infobtn = document.getElementById(`useinfo${currentId}`)
+            const infoclose = document.getElementById('infoclose');
+                infobtn.addEventListener('click', ()=>{
+                      userimage.src = u.photo
+                      infoname.innerHTML = u.name
+                      inforole.innerHTML = u.role
+                      infoemail.innerHTML = u.email
+                      infophone.innerHTML = u.phone
+                  personalinfo.classList.remove('hidden')
+                infoclose.addEventListener('click', ()=>{
+                  personalinfo.classList.add('hidden')
+                  })
+                })
+
             const removesecurity = document.getElementById(`removesecurity${currentId}`)
             removesecurity.addEventListener('click', (e)=> {
                 document.getElementById(`security${currentId}`).remove()
@@ -668,17 +838,37 @@ Staffroombtn.addEventListener("click", () => {
                 return;
             }
             newEmplyee.innerHTML = `
-            <img src="${u.photo || "./addposi.png"}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
-            <div class="flex flex-col">
-                <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
-                <button id="removestaff${currentId}" class="mt-1 bg-red-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-red-700 transition">
-                    Remove
-                </button>
+            <div class="flex justify-between items-start w-full">
+              <div class="flex items-center gap-3">
+                  <button id="useinfo${currentId}">
+                    <img src="${u.photo || './addposi.png'}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+                    <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+                  </button>
+              </div>
+              <button id="removestaff${currentId}" class="bg-red-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-red-700 transition">
+                  X
+              </button>
             </div>
         `;
             Staffroom.appendChild(newEmplyee);
             staffroomcounter++;
             u.inroom = "True"
+//user info
+            const personalinfo = document.getElementById('personalinfo');
+            const infobtn = document.getElementById(`useinfo${currentId}`)
+            const infoclose = document.getElementById('infoclose');
+                infobtn.addEventListener('click', ()=>{
+                      userimage.src = u.photo
+                      infoname.innerHTML = u.name
+                      inforole.innerHTML = u.role
+                      infoemail.innerHTML = u.email
+                      infophone.innerHTML = u.phone
+                  personalinfo.classList.remove('hidden')
+                infoclose.addEventListener('click', ()=>{
+                  personalinfo.classList.add('hidden')
+                  })
+                })
+
             const removestaff = document.getElementById(`removestaff${currentId}`)
             removestaff.addEventListener('click', (e)=> {
                 document.getElementById(`staff${currentId}`).remove()
@@ -753,17 +943,37 @@ Archivesroombtn.addEventListener("click", () => {
                 return;
             }
             newEmplyee.innerHTML = `
-            <img src="${u.photo || "./addposi.png"}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
-            <div class="flex flex-col">
-                <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
-                <button id="removeArchives${currentId}" class="mt-1 bg-red-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-red-700 transition">
-                    Remove
-                </button>
+            <div class="flex justify-between items-start w-full">
+              <div class="flex items-center gap-3">
+                  <button id="useinfo${currentId}">
+                    <img src="${u.photo || './addposi.png'}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
+                    <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+                  </button>
+              </div>
+              <button id="removeArchives${currentId}" class="bg-red-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-red-700 transition">
+                  X
+              </button>
             </div>
         `;
             Archivesroom.appendChild(newEmplyee);
             Archivesroomcounter++;
             u.inroom = "True"
+//user info
+            const personalinfo = document.getElementById('personalinfo');
+            const infobtn = document.getElementById(`useinfo${currentId}`)
+            const infoclose = document.getElementById('infoclose');
+                infobtn.addEventListener('click', ()=>{
+                      userimage.src = u.photo
+                      infoname.innerHTML = u.name
+                      inforole.innerHTML = u.role
+                      infoemail.innerHTML = u.email
+                      infophone.innerHTML = u.phone
+                  personalinfo.classList.remove('hidden')
+                infoclose.addEventListener('click', ()=>{
+                  personalinfo.classList.add('hidden')
+                  })
+                })
+
             const removeArchives = document.getElementById(`removeArchives${currentId}`)
             removeArchives.addEventListener('click', (e)=> {
                 document.getElementById(`Archives${currentId}`).remove()
@@ -786,33 +996,5 @@ closeBtn.addEventListener("click", () => {
 });
 
 
-//user info 
 
-/* <section class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div class="w-[50%] lg:w-[30%] bg-white shadow-lg rounded-2xl overflow-hidden ring-1 ring-slate-200">
-                <div class="p-6 flex gap-4 items-center">
-                    <img src="https://i.pravatar.cc/100?img=12" alt="Profile avatar" class="w-20 h-20 rounded-full object-cover border-2 border-slate-100 shadow-sm" />
-                    <div class="flex-1">
-                        <div class="flex items-center justify-between">
-                            <h2 class="text-lg font-semibold text-slate-900" id="fullName">Mouad Gourita</h2>
-                            <span class="text-sm text-slate-500" id="role">Role</span>
-                        </div>
-                        <p class="mt-2 text-sm text-slate-600 flex items-center gap-2">
-                            <img class="w-6 h-5" src="./Images/mailpng.png" alt="email icon">
-                            Mouad.gourita@gmail.com
-                        </p>
-                        <div class="mt-4">
-                            <div class="flex flex-col items-center justify-between text-xs text-slate-500">
-                                <span>Experience</span>
-                                <h3>Benn Working as dadadada</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> */
 
-function userinfo(username, email, image, experia){
-  const newdiv = document.createElement('div');
-  
-}
