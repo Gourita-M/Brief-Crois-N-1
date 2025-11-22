@@ -50,7 +50,7 @@
         <div class="flex justify-center items-center">
             <button class="bg-green-400 bg-opacity-30 w-40 m-1 p-1 rounded-lg" id="addFormbtn">Add New Emplyee</button>
         </div>
-        <div id="aside" class="grid grid-cols-3 lg:grid-cols-1 lg:grid-row-6 lg:overflow-x-auto overflow-y-auto lg:w-[100%] lg:h-[93vh] h-[15vh] bg-white rounded-lg m-1 shadow-lg gap-2">
+        <div id="aside" class="grid grid-cols-3 lg:grid-cols-1 lg:grid-row-6 lg:overflow-x-auto overflow-y-auto lg:w-[100%] lg:h-[93vh] h-[17vh] bg-white rounded-lg m-1 shadow-lg">
             
             <!--Dyal Add -->
             <div id="addForm" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -72,10 +72,11 @@
                         <div class="flex flex-col">
                             <label for="formrole" class="font-medium">Role <span>*</span></label>
                             <select id="formrole" class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <option>Receptionist</option>
+                                <option>IT Technician</option>
+                                <option>Security Team</option>
                                 <option>Manager</option>
-                                <option>Developer</option>
-                                <option>Designer</option>
-                                <option>HR</option>
+                                <option>Cleaning Team</option>
                             </select>
                         </div>
                         <div class="flex flex-col">
@@ -108,7 +109,7 @@
             </div>
         </div>
     </aside>
-    <main id="container" class="lg:h-[98vh] w-[99%] h-[88vh] bg-white rounded-lg m-1 shadow-lg&">
+    <main id="container" class="lg:w-[80%] lg:h-[98vh] w-[99%] h-[88vh] bg-white rounded-lg m-1 shadow-lg&">
         <!-- Available Employees Popup -->
         <div id="availableEmployeesPopup"
             class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
