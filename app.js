@@ -163,6 +163,8 @@ const users = [
   }
 ];
 
+let counter1 = 1
+let addingcounter = 1
 
 //rooms
   const Archives = document.getElementById('Archives');
@@ -178,69 +180,7 @@ const users = [
   users.forEach(u => GlobalArray.push(u));
   
 //
-let counter1 = 1
-let addingcounter = 1
-GlobalArray.forEach( u => {
-
-const znewdiv = document.createElement('div')
-    znewdiv.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl h-24 p-3 lg:w-[100%] w-[95%] lg:h-20 m-2 hover:shadow-lg transition'
-    znewdiv.id = `yy${counter1}`
-    znewdiv.innerHTML = `  
-        <img src="${u.photo}" class="w-10 h-10 rounded-full object-cover border" alt="Employee img">
-        <div class="flex justify-between w-[100%] p-1">
-        <div class="flex flex-col items-center gap-2">
-          <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
-          <h2 class="text-sm font-semibold text-gray-800">${u.role}</h2>
-        <div>
-          <button id="adding${counter1}">
-            Add
-          </button>
-          <button type="button" id="removing${counter1}">
-            <img class="h-5 w-5" src="./Images/supprimer.png" alt="close btn">
-          </button>
-        </div>
-    `
-    aside.appendChild(znewdiv)
-    const remo = document.getElementById(`removing${counter1}`)
-    const yy = document.getElementById(`yy${counter1}`)
-    remo.addEventListener('click', ()=> {
-       yy.remove()
-       console.log(GlobalArray.indexOf(u))
-       const index = GlobalArray.indexOf(u); 
-        GlobalArray.splice(index, 1);
-         console.log(GlobalArray)
-    })
-    const addw = document.getElementById(`adding${counter1}`)
-    addw.addEventListener('click', ()=> {
-      if(confrencercounter >= 6 ){
-                alert('Only 6 People are allowed to Enter this Room');
-                return;
-            }
-      if(u.inroom === 'True'){
-        alert('already in room')
-        return
-      }
-            yy.innerHTML = `
-            <div class="flex items-center justify-between w-full p-3 ">
-              <div class="flex items-center gap-3">
-                <button id="useinfo${counter1}" class="flex items-center gap-3">
-                  <img src="${u.photo}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
-                  <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
-                </button>
-              </div>
-
-              <button id="remove${counter1}">
-                <img class="h-5 w-5" src="./Images/supprimer.png" alt="close btn">
-              </button>
-            </div>
-        `;
-            Conferenceroom.appendChild(yy);
-            confrencercounter++;
-            u.inroom = "True"
-            console.log(u.inroom)
-    })
- counter1++;
-})
+displayUsers();
 
 //users info 
 const infoname = document.getElementById('infoname')
@@ -272,7 +212,7 @@ closeform.addEventListener('click', ()=> {
     }
   });
 
-  //Dynamic Experiance
+ // experianc
   const container = document.getElementById("experienceContainer");
   const addBtn = document.getElementById("addExperience");
 
@@ -304,7 +244,6 @@ closeform.addEventListener('click', ()=> {
     `;
     container.appendChild(div);
 
-    // Remove experiance
     div.querySelector(".remove-exp").addEventListener("click", () => {
       div.remove();
     });
@@ -351,7 +290,7 @@ addForm.classList.add('hidden')
                         <img class="w-5 h-5" src="./Images/addposi.png" alt="add btn">
                     </button>
     `
-    aside.appendChild(newdiv)
+    aside.prepend(newdiv)
     const deletebtn = document.getElementById(`btn${counter}`)
     deletebtn.addEventListener('click', ()=>{
     const divtoremove = document.getElementById(`div${counter}`);
@@ -444,6 +383,8 @@ Conferenceroombtn.addEventListener("click", () => {
             confrencercounter++;
             u.inroom = "True"
             console.log(u.inroom)
+            aside.innerHTML= ''
+            displayUsers();
  //user info
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
@@ -502,14 +443,14 @@ Receptionbtn.addEventListener("click", () => {
     );
 
     arraytemp.forEach(u => {
-      if(u.inroom === 'True'){ //inroom: "False",
+      if(u.inroom === 'True'){
           return
       }
       else{
         const currentId = emplyeeaddid2; 
         const newEmplyee = document.createElement('div');
         newEmplyee.id = `d--${currentId}`;
-        newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[90%] h-20 m-2 hover:shadow-lg transition';
+        newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[100%] h-20 m-2 hover:shadow-lg transition';
         newEmplyee.innerHTML = `
             <img src="${u.photo || "./addposi.png"}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
             <div class="flex justify-between w-[100%] p-5">
@@ -546,6 +487,8 @@ Receptionbtn.addEventListener("click", () => {
             Reception.appendChild(newEmplyee);
             Receptioncounter++;
             u.inroom = "True"
+            aside.innerHTML= ''
+            displayUsers();
 //user info
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
@@ -612,7 +555,7 @@ Serverroombtn.addEventListener("click", () => {
         const currentId = emplyeeaddid3; 
         const newEmplyee = document.createElement('div');
         newEmplyee.id = `id-${currentId}`;
-        newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[90%] h-20 m-2 hover:shadow-lg transition';
+        newEmplyee.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl p-3 w-[100%] h-20 m-2 hover:shadow-lg transition';
         newEmplyee.innerHTML = `
             <img src="${u.photo || "./addposi.png"}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
             <div class="flex justify-between w-[100%] p-5">
@@ -649,6 +592,8 @@ Serverroombtn.addEventListener("click", () => {
             Serverroom.appendChild(newEmplyee);
             Serverroomcounter++;
             u.inroom = "True"
+            aside.innerHTML= ''
+            displayUsers();
   //user info
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
@@ -751,6 +696,8 @@ Securityroombtn.addEventListener("click", () => {
             Securityroom.appendChild(newEmplyee);
             securityroomcounter++;
             u.inroom = "True"
+            aside.innerHTML= ''
+            displayUsers();
 //user info
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
@@ -853,6 +800,8 @@ Staffroombtn.addEventListener("click", () => {
             Staffroom.appendChild(newEmplyee);
             staffroomcounter++;
             u.inroom = "True"
+            aside.innerHTML= ''
+            displayUsers();
 //user info
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
@@ -958,6 +907,8 @@ Archivesroombtn.addEventListener("click", () => {
             Archivesroom.appendChild(newEmplyee);
             Archivesroomcounter++;
             u.inroom = "True"
+            aside.innerHTML= ''
+            displayUsers();
 //user info
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
@@ -995,6 +946,40 @@ closeBtn.addEventListener("click", () => {
     employeelist.innerHTML = "";
 });
 
+function displayUsers() {
+  GlobalArray.forEach(u => {
 
+    if (u.inroom === 'True') {
+      return; 
+    }
 
+    const znewdiv = document.createElement('div');
+    znewdiv.classList =
+      'flex items-center gap-3 bg-green-200 shadow-md rounded-xl h-24 p-3 lg:w-[100%] w-[95%] lg:h-20 m-2 hover:shadow-lg transition';
+    znewdiv.id = `yy${counter1}`;
 
+    znewdiv.innerHTML = `
+      <img src="${u.photo}" class="w-10 h-10 rounded-full object-cover border" alt="Employee img">
+      <div class="flex justify-between w-[100%] p-1">
+      <div class="flex flex-col items-center gap-2">
+        <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
+        <h2 class="text-sm font-semibold text-gray-800">${u.role}</h2>
+    `;
+
+    aside.appendChild(znewdiv);
+
+    counter1++;
+  });
+}
+
+     //  <button type="button" id="removing${counter1}">
+    //         <img class="h-5 w-5" src="./Images/supprimer.png" alt="close btn">
+    //       </button>
+    // const remo = document.getElementById(`removing${counter1}`)
+    // const yy = document.getElementById(`yy${counter1}`)
+    // remo.addEventListener('click', ()=> {
+    //    yy.remove()
+    //    console.log(GlobalArray.indexOf(u))
+    //    const index = GlobalArray.indexOf(u); 
+    //     GlobalArray.splice(index, 1);
+    //      console.log(GlobalArray)
