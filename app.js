@@ -8,6 +8,7 @@ const users = [
     email: "emma.johnson@example.com",
     phone: "+1 555-1023",
     inroom: "False",
+    state: "Unassigned",
   },
   {
     name: "Lucas Smith",
@@ -16,6 +17,7 @@ const users = [
     email: "lucas.smith@example.com",
     phone: "+1 555-2214",
     inroom: "False",
+    state: "Unassigned",
   },
   {
     name: "Olivia Brown",
@@ -24,6 +26,7 @@ const users = [
     email: "olivia.brown@example.com",
     phone: "+1 555-8872",
     inroom: "False",
+    state: "Unassigned",
   },
   {
     name: "Ethan Davis",
@@ -32,6 +35,7 @@ const users = [
     email: "ethan.davis@example.com",
     phone: "+1 555-3131",
     inroom: "False",
+    state: "Unassigned",
   },
   {
     name: "Sophia Miller",
@@ -167,7 +171,7 @@ let counter1 = 1
 let addingcounter = 1
 
 //rooms
-  const Archives = document.getElementById('Archives');
+  const Archivesroom = document.getElementById('Archivesroom');//Archivesroom
   const Staffroom = document.getElementById('Staffroom');
   const Securityroom = document.getElementById('Securityroom');
   const Serverroom = document.getElementById('Serverroom');
@@ -261,8 +265,8 @@ addForm.classList.add('hidden')
   const formemail = document.getElementById('formemail').value.trim();
   const formrole = document.getElementById('formrole').value.trim();
   const photo = document.getElementById('photo').value.trim();
-  const formexper = document.querySelectorAll('Experience').value.trim();
-  const formDescription = document.querySelectorAll('Description').value.trim();
+  const formexper = document.querySelectorAll('.Experience');
+  const formDescription = document.querySelectorAll('.Description');
 
   GlobalArray.push({
     name: `${formname}`,
@@ -316,6 +320,7 @@ const Conferenceroombtn = document.getElementById('Conferenceroombtn');
 const popup = document.getElementById("availableEmployeesPopup");
 const closeBtn = document.getElementById("closeEmployeesPopup");
 const employeelist = document.getElementById("employeelist");
+const confrensvisi = document.querySelector('.confrensvisi');
 
 // List of availlbl Conference Room
 let confrencercounter = 0;
@@ -383,6 +388,7 @@ Conferenceroombtn.addEventListener("click", () => {
         `;
             Conferenceroom.appendChild(newEmplyee);
             confrencercounter++;
+            confrensvisi.textContent = `${confrencercounter}/6`
             u.inroom = "True"
             console.log(u.inroom)
             aside.innerHTML= ''
@@ -407,6 +413,7 @@ Conferenceroombtn.addEventListener("click", () => {
             removebbt.addEventListener('click', (e)=> {
                 document.getElementById(`d-${currentId}`).remove()
                 confrencercounter--;
+                confrensvisi.textContent = `${confrencercounter}/6`
                 u.inroom = "False"
                 console.log(u.inroom)
                 aside.innerHTML= ''
@@ -430,9 +437,9 @@ closeBtn.addEventListener("click", () => {
 let Receptioncounter = 0;
 let emplyeeaddid2 = 1
 const Receptionbtn = document.getElementById('Receptionbtn');
+const Receptivisi = document.querySelector('.Receptivisi')
 Receptionbtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
-
     if(Receptioncounter >= 3 ){
         alert('Only 3 People are allowed to Enter this Room');
         popup.classList.add("hidden");
@@ -491,9 +498,14 @@ Receptionbtn.addEventListener("click", () => {
         `;
             Reception.appendChild(newEmplyee);
             Receptioncounter++;
+            Receptivisi.textContent = `${Receptioncounter}/3`
             u.inroom = "True"
             aside.innerHTML= ''
             displayUsers();
+            if(Receptioncounter > 0){
+            const item2 = document.querySelector(`.item2`)
+            item2.classList.remove('bg-red-300')
+            }
 //user info
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
@@ -514,15 +526,21 @@ Receptionbtn.addEventListener("click", () => {
             removebbt.addEventListener('click', (e)=> {
                 document.getElementById(`d--${currentId}`).remove()
                 Receptioncounter--;
+                Receptivisi.textContent = `${Receptioncounter}/3`
                 u.inroom = "False"
                 console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
+                if(Receptioncounter === 0){
+                const item2 = document.querySelector(`.item2`)
+                item2.classList.add('bg-red-300')
+                }
             })
  
         });
 
         emplyeeaddid2++;
+        
       }
         
     });
@@ -537,6 +555,7 @@ closeBtn.addEventListener("click", () => {
 let Serverroomcounter = 0;
 let emplyeeaddid3 = 1
 const Serverroombtn = document.getElementById('Serverroombtn');
+const Servervisi = document.querySelector('.Servervisi')
 Serverroombtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
 
@@ -598,9 +617,14 @@ Serverroombtn.addEventListener("click", () => {
         `;
             Serverroom.appendChild(newEmplyee);
             Serverroomcounter++;
+            Servervisi.textContent = `${Serverroomcounter}/2`
             u.inroom = "True"
             aside.innerHTML= ''
             displayUsers();
+            if(Serverroomcounter > 0){
+            const item3 = document.querySelector(`.item3`)
+            item3.classList.remove('bg-red-300')
+            }
   //user info
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
@@ -621,10 +645,15 @@ Serverroombtn.addEventListener("click", () => {
             removebbt.addEventListener('click', (e)=> {
                 document.getElementById(`id-${currentId}`).remove()
                 Serverroomcounter--;
+                Servervisi.textContent = `${Serverroomcounter}/2`
                 u.inroom = "False"
                 console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
+                if(Serverroomcounter === 0){
+                const item3 = document.querySelector(`.item3`)
+                item3.classList.add('bg-red-300')
+                }
             })
 
         });
@@ -644,6 +673,7 @@ closeBtn.addEventListener("click", () => {
 let securityroomcounter = 0;
 let emplyeeaddid4 = 1
 const Securityroombtn = document.getElementById('Securityroombtn');
+const Securityvisi = document.querySelector('.Securityvisi');
 Securityroombtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
 
@@ -705,9 +735,14 @@ Securityroombtn.addEventListener("click", () => {
         `;
             Securityroom.appendChild(newEmplyee);
             securityroomcounter++;
+            Securityvisi.textContent = `${securityroomcounter}/2`
             u.inroom = "True"
             aside.innerHTML= ''
             displayUsers();
+            if(securityroomcounter > 0){
+            const item4 = document.querySelector(`.item4`)
+            item4.classList.remove('bg-red-300')
+            }
 //user info
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
@@ -728,10 +763,15 @@ Securityroombtn.addEventListener("click", () => {
             removesecurity.addEventListener('click', (e)=> {
                 document.getElementById(`security${currentId}`).remove()
                 securityroomcounter--;
+                Securityvisi.textContent = `${securityroomcounter}/2`
                 u.inroom = "False"
                 console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
+                if(securityroomcounter === 0){
+                const item4 = document.querySelector(`.item4`)
+                item4.classList.add('bg-red-300')
+                }
             })
       
         });
@@ -747,10 +787,11 @@ closeBtn.addEventListener("click", () => {
     employeelist.innerHTML = "";
 });
 
-// Security Room
+// staff Room
 let staffroomcounter = 0;
 let emplyeeaddid5 = 1
 const Staffroombtn = document.getElementById('Staffroombtn');
+const Staffvisi = document.querySelector('.Staffvisi')
 Staffroombtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
 
@@ -813,6 +854,7 @@ Staffroombtn.addEventListener("click", () => {
         `;
             Staffroom.appendChild(newEmplyee);
             staffroomcounter++;
+            Staffvisi.textContent = `${staffroomcounter}/2`
             u.inroom = "True"
             aside.innerHTML= ''
             displayUsers();
@@ -836,6 +878,7 @@ Staffroombtn.addEventListener("click", () => {
             removestaff.addEventListener('click', (e)=> {
                 document.getElementById(`staff${currentId}`).remove()
                 staffroomcounter--;
+                Staffvisi.textContent = `${staffroomcounter}/2`
                 u.inroom = "False"
                 console.log(u.inroom)
                 aside.innerHTML= ''
@@ -860,6 +903,7 @@ closeBtn.addEventListener("click", () => {
 let Archivesroomcounter = 0;
 let emplyeeaddid6 = 1
 const Archivesroombtn = document.getElementById('Archivesroombtn');
+const Archivesvisi = document.querySelector('.Archivesvisi');
 Archivesroombtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
 
@@ -924,9 +968,14 @@ Archivesroombtn.addEventListener("click", () => {
         `;
             Archivesroom.appendChild(newEmplyee);
             Archivesroomcounter++;
+            Archivesvisi.textContent = `${Archivesroomcounter}/2`
             u.inroom = "True"
             aside.innerHTML= ''
             displayUsers();
+            if(Archivesroomcounter > 0){
+                const item6 = document.querySelector(`.item6`)
+                item6.classList.remove('bg-red-300')
+                }
 //user info
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
@@ -947,10 +996,15 @@ Archivesroombtn.addEventListener("click", () => {
             removeArchives.addEventListener('click', (e)=> {
                 document.getElementById(`Archives${currentId}`).remove()
                 Archivesroomcounter--;
+                Archivesvisi.textContent = `${Archivesroomcounter}/2`
                 u.inroom = "False"
                 console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
+                if(Archivesroomcounter === 0){
+                const item6 = document.querySelector(`.item6`)
+                item6.classList.add('bg-red-300')
+                }
             })
             
         });
@@ -983,7 +1037,7 @@ function displayUsers() {
       <div class="flex flex-col justify-between w-[100%] p-1">
         <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
         <h2 class="text-sm font-semibold text-gray-700">${u.role}</h2>
-        <h2 class="text-sm font-semibold text-gray-700">not Signed</h2>
+        <h2 class="text-sm font-semibold text-gray-700">Unassigned</h2>
       </div>
     `;
 
@@ -1004,3 +1058,4 @@ function displayUsers() {
     //    const index = GlobalArray.indexOf(u); 
     //     GlobalArray.splice(index, 1);
     //      console.log(GlobalArray)
+
