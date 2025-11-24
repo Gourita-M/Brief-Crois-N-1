@@ -314,7 +314,6 @@ addForm.classList.add('hidden')
 
 console.log(GlobalArray);
 
-
 // For emplyee list Pop up
 const Conferenceroombtn = document.getElementById('Conferenceroombtn');
 const popup = document.getElementById("availableEmployeesPopup");
@@ -336,11 +335,12 @@ Conferenceroombtn.addEventListener("click", () => {
     }
 
     employeelist.innerHTML = "";
-
+                              
     const arraytemp = GlobalArray.filter(user =>
-    user.role === "Manager" || user.role === "IT Technician"
+    user.role === "Manager" || user.role === "IT Technician" ||
+    user.role === "Receptionist" || user.role === "Security Team" ||
+    user.role === "Cleaning Team"
 );
-
 
     arraytemp.forEach(u => {
       if(u.inroom === 'True'){ 
@@ -449,7 +449,8 @@ Receptionbtn.addEventListener("click", () => {
     employeelist.innerHTML = "";
 
     const arraytemp = GlobalArray.filter(user =>
-        user.role === "Manager" || user.role === "Receptionist"
+        user.role === "Manager" || user.role === "Receptionist" 
+        || user.role === "Cleaning Team"
     );
 
     arraytemp.forEach(u => {
@@ -569,6 +570,7 @@ Serverroombtn.addEventListener("click", () => {
 
     const arraytemp = GlobalArray.filter(user =>
         user.role === "Manager" || user.role === "IT Technician"
+        || user.role === "Cleaning Team"
     );
 
     arraytemp.forEach(u => {
@@ -687,6 +689,7 @@ Securityroombtn.addEventListener("click", () => {
 
     const arraytemp = GlobalArray.filter(user =>
         user.role === "Manager" || user.role === "Security Team"
+        || user.role === "Cleaning Team"
     );
 
     arraytemp.forEach(u => {
@@ -804,8 +807,7 @@ Staffroombtn.addEventListener("click", () => {
     employeelist.innerHTML = "";
 
     const arraytemp = GlobalArray.filter(user =>
-        user.role === "Manager" && 
-        ![...Conferenceroom.children].some(c => c.querySelector("h1").textContent === user.name)
+       user.role === "Manager" || user.role === "Cleaning Team"
     );
 
     arraytemp.forEach(u => {
@@ -918,8 +920,7 @@ Archivesroombtn.addEventListener("click", () => {
 
   
     const arraytemp = GlobalArray.filter(user =>
-        user.role === "Manager" && 
-        ![...Conferenceroom.children].some(c => c.querySelector("h1").textContent === user.name)
+        user.role === "Manager"
     );
 
     arraytemp.forEach(u => {
