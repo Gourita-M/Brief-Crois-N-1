@@ -553,7 +553,7 @@ Receptionbtn.addEventListener("click", () => {
                   </button>
               <div class="flex items-center justify-between w-full p-3 ">
                 <div class="flex items-center gap-3">
-                  <button id="useinfo${currentId}" class="flex items-center gap-3">
+                  <button id="useinfores${currentId}" class="flex items-center gap-3">
                     <img src="${u.photo}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
                     <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
                   </button>
@@ -573,7 +573,7 @@ Receptionbtn.addEventListener("click", () => {
             }
 
             const personalinfo = document.getElementById('personalinfo');
-            const infobtn = document.getElementById(`useinfo${currentId}`)
+            const infobtn = document.getElementById(`useinfores${currentId}`)
             const infoclose = document.getElementById('infoclose');
                 infobtn.addEventListener('click', ()=>{
                       userimage.src = u.photo
@@ -674,7 +674,7 @@ Serverroombtn.addEventListener("click", () => {
                   </button>
               <div class="flex items-center justify-between w-full p-3 ">
                 <div class="flex items-center gap-3">
-                  <button id="useinfo${currentId}" class="flex items-center gap-3">
+                  <button id="useinfoser${currentId}" class="flex items-center gap-3">
                     <img src="${u.photo}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
                     <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
                   </button>
@@ -694,7 +694,7 @@ Serverroombtn.addEventListener("click", () => {
             }
             
             const personalinfo = document.getElementById('personalinfo');
-            const infobtn = document.getElementById(`useinfo${currentId}`)
+            const infobtn = document.getElementById(`useinfoser${currentId}`)
             const infoclose = document.getElementById('infoclose');
                 infobtn.addEventListener('click', ()=>{
                       userimage.src = u.photo
@@ -794,7 +794,7 @@ Securityroombtn.addEventListener("click", () => {
                   </button>
               <div class="flex items-center justify-between w-full p-3 ">
                 <div class="flex items-center gap-3">
-                  <button id="useinfo${currentId}" class="flex items-center gap-3">
+                  <button id="useinfosecu${currentId}" class="flex items-center gap-3">
                     <img src="${u.photo}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
                     <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
                   </button>
@@ -814,7 +814,7 @@ Securityroombtn.addEventListener("click", () => {
             }
 
             const personalinfo = document.getElementById('personalinfo');
-            const infobtn = document.getElementById(`useinfo${currentId}`)
+            const infobtn = document.getElementById(`useinfosecu${currentId}`)
             const infoclose = document.getElementById('infoclose');
                 infobtn.addEventListener('click', ()=>{
                       userimage.src = u.photo
@@ -913,7 +913,7 @@ Staffroombtn.addEventListener("click", () => {
                   </button>
               <div class="flex items-center justify-between w-full p-3 ">
                 <div class="flex items-center gap-3">
-                  <button id="useinfo${currentId}" class="flex items-center gap-3">
+                  <button id="useinfostaff${currentId}" class="flex items-center gap-3">
                     <img src="${u.photo}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
                     <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
                   </button>
@@ -929,7 +929,7 @@ Staffroombtn.addEventListener("click", () => {
             displayUsers();
 
             const personalinfo = document.getElementById('personalinfo');
-            const infobtn = document.getElementById(`useinfo${currentId}`)
+            const infobtn = document.getElementById(`useinfostaff${currentId}`)
             const infoclose = document.getElementById('infoclose');
                 infobtn.addEventListener('click', ()=>{
                       userimage.src = u.photo
@@ -1027,7 +1027,7 @@ Archivesroombtn.addEventListener("click", () => {
                   </button>
               <div class="flex items-center justify-between w-full p-3 ">
                 <div class="flex items-center gap-3">
-                  <button id="useinfo${currentId}" class="flex items-center gap-3">
+                  <button id="useinfoArchives${currentId}" class="flex items-center gap-3">
                     <img src="${u.photo}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
                     <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
                   </button>
@@ -1047,7 +1047,7 @@ Archivesroombtn.addEventListener("click", () => {
                 }
 
             const personalinfo = document.getElementById('personalinfo');
-            const infobtn = document.getElementById(`useinfo${currentId}`)
+            const infobtn = document.getElementById(`useinfoArchives${currentId}`)
             const infoclose = document.getElementById('infoclose');
                 infobtn.addEventListener('click', ()=>{
                       userimage.src = u.photo
