@@ -2,168 +2,224 @@
 
 const users = [
   {
-    name: "Emma Johnson",
+    name: "Ash Awa Biti",
+    email: "mouad.gout@ggjg.com",
+    phone: "453453",
+    inroom: "False",
+    photo: "https://postimg.cc/fSQKRNV3",
     role: "Manager",
-    photo: "https://randomuser.me/api/portraits/women/12.jpg",
-    email: "emma.johnson@example.com",
-    phone: "+1 555-1023",
-    inroom: "False",
-    state: "Unassigned",
+    experiences: [
+      { experience: "gerge", description: "", startDate: "2025-11-11", endDate: "2025-11-29" }
+    ]
   },
   {
-    name: "Lucas Smith",
-    role: "IT Technician",
-    photo: "https://randomuser.me/api/portraits/men/32.jpg",
-    email: "lucas.smith@example.com",
-    phone: "+1 555-2214",
+    name: "Lina Farouk",
+    email: "lina.farouk@example.com",
+    phone: "0623123401",
     inroom: "False",
-    state: "Unassigned",
-  },
-  {
-    name: "Olivia Brown",
+    photo: "https://randomuser.me/api/portraits/women/1.jpg",
     role: "Receptionist",
-    photo: "https://randomuser.me/api/portraits/women/45.jpg",
-    email: "olivia.brown@example.com",
-    phone: "+1 555-8872",
-    inroom: "False",
-    state: "Unassigned",
+    experiences: [
+      { experience: "Customer Support", description: "Front desk", startDate: "2024-01-10", endDate: "2025-05-20" }
+    ]
   },
   {
-    name: "Ethan Davis",
-    role: "Security Agent",
-    photo: "https://randomuser.me/api/portraits/men/18.jpg",
-    email: "ethan.davis@example.com",
-    phone: "+1 555-3131",
+    name: "Adam Benali",
+    email: "adam.benali@example.com",
+    phone: "0625431200",
     inroom: "False",
-    state: "Unassigned",
+    photo: "https://randomuser.me/api/portraits/men/2.jpg",
+    role: "IT Technician",
+    experiences: [
+      { experience: "Hardware Fixing", description: "", startDate: "2023-02-12", endDate: "2024-11-01" }
+    ]
   },
   {
-    name: "Sophia Miller",
-    role: "Cleaner",
-    photo: "https://randomuser.me/api/portraits/women/9.jpg",
-    email: "sophia.miller@example.com",
-    phone: "+1 555-5582",
+    name: "Sara Madi",
+    email: "sara.madi@example.com",
+    phone: "0634520001",
     inroom: "False",
+    photo: "https://randomuser.me/api/portraits/women/3.jpg",
+    role: "Security Team",
+    experiences: [
+      { experience: "CCTV Monitoring", description: "", startDate: "2022-05-01", endDate: "2024-07-15" }
+    ]
   },
   {
-    name: "Michael Wilson",
+    name: "Yassine Toumi",
+    email: "yassine.toumi@example.com",
+    phone: "0641212213",
+    inroom: "False",
+    photo: "https://randomuser.me/api/portraits/men/4.jpg",
+    role: "Cleaning Team",
+    experiences: [
+      { experience: "Building Maintenance", description: "", startDate: "2021-01-01", endDate: "2023-01-01" }
+    ]
+  },
+  {
+    name: "Nadia Rahou",
+    email: "nadia.rahou@example.com",
+    phone: "0612312390",
+    inroom: "False",
+    photo: "https://randomuser.me/api/portraits/women/5.jpg",
+    role: "Receptionist",
+    experiences: [
+      { experience: "Guest Handling", description: "", startDate: "2020-08-10", endDate: "2023-05-20" }
+    ]
+  },
+  {
+    name: "Omar Idrissi",
+    email: "omar.idrissi@example.com",
+    phone: "0676543210",
+    inroom: "False",
+    photo: "https://randomuser.me/api/portraits/men/6.jpg",
     role: "Manager",
-    photo: "https://randomuser.me/api/portraits/men/55.jpg",
-    email: "michael.wilson@example.com",
-    phone: "+1 555-9912",
-    inroom: "False",
+    experiences: [
+      { experience: "Team Leader", description: "", startDate: "2021-03-14", endDate: "2024-12-20" }
+    ]
   },
   {
-    name: "Ava Martinez",
-    role: "Receptionist",
-    photo: "https://randomuser.me/api/portraits/women/28.jpg",
-    email: "ava.martinez@example.com",
-    phone: "+1 555-6634",
+    name: "Rania Tahiri",
+    email: "rania.tahiri@example.com",
+    phone: "0609876521",
     inroom: "False",
-  },
-  {
-    name: "Noah Anderson",
-    role: "IT Technician",
-    photo: "https://randomuser.me/api/portraits/men/43.jpg",
-    email: "noah.anderson@example.com",
-    phone: "+1 555-1178",
-    inroom: "False",
-  },
-  {
-    name: "Isabella Taylor",
-    role: "Cleaner",
-    photo: "https://randomuser.me/api/portraits/women/52.jpg",
-    email: "isabella.taylor@example.com",
-    phone: "+1 555-4456",
-    inroom: "False",
-  },
-  {
-    name: "James Thomas",
-    role: "Security Agent",
-    photo: "https://randomuser.me/api/portraits/men/60.jpg",
-    email: "james.thomas@example.com",
-    phone: "+1 555-9021",
-    inroom: "False",
-  },
-  {
-    name: "Mia White",
-    role: "Manager",
-    photo: "https://randomuser.me/api/portraits/women/11.jpg",
-    email: "mia.white@example.com",
-    phone: "+1 555-3300",
-    inroom: "False",
-  },
-  {
-    name: "Benjamin Harris",
-    role: "Receptionist",
-    photo: "https://randomuser.me/api/portraits/men/36.jpg",
-    email: "benjamin.harris@example.com",
-    phone: "+1 555-2219",
-    inroom: "False",
-  },
-  {
-    name: "Charlotte Martin",
-    role: "Receptionist",
-    photo: "https://randomuser.me/api/portraits/women/19.jpg",
-    email: "charlotte.martin@example.com",
-    phone: "+1 555-7623",
-    inroom: "False",
-  },
-  {
-    name: "Elijah Thompson",
-    role: "IT Technician",
-    photo: "https://randomuser.me/api/portraits/men/14.jpg",
-    email: "elijah.thompson@example.com",
-    phone: "+1 555-9043",
-    inroom: "False",
-  },
-  {
-    name: "Amelia Garcia",
-    role: "Security Agent",
-    photo: "https://randomuser.me/api/portraits/women/60.jpg",
-    email: "amelia.garcia@example.com",
-    phone: "+1 555-6720",
-    inroom: "False",
-  },
-  {
-    name: "William Clark",
-    role: "Cleaner",
-    photo: "https://randomuser.me/api/portraits/men/71.jpg",
-    email: "william.clark@example.com",
-    phone: "+1 555-8801",
-    inroom: "False",
-  },
-  {
-    name: "Harper Rodriguez",
-    role: "Other",
     photo: "https://randomuser.me/api/portraits/women/7.jpg",
-    email: "harper.rodriguez@example.com",
-    phone: "+1 555-1902",
-    inroom: "False",
+    role: "Security Team",
+    experiences: [
+      { experience: "Office Patrol", description: "", startDate: "2023-07-01", endDate: "2025-01-10" }
+    ]
   },
   {
-    name: "Daniel Lewis",
+    name: "Hamza Mouline",
+    email: "hamza.mouline@example.com",
+    phone: "0623456765",
+    inroom: "False",
+    photo: "https://randomuser.me/api/portraits/men/8.jpg",
+    role: "Cleaning Team",
+    experiences: [
+      { experience: "Deep Cleaning", description: "", startDate: "2022-10-01", endDate: "2024-03-01" }
+    ]
+  },
+  {
+    name: "Meryem Zahidi",
+    email: "meryem.zahidi@example.com",
+    phone: "0665432123",
+    inroom: "False",
+    photo: "https://randomuser.me/api/portraits/women/9.jpg",
     role: "IT Technician",
-    photo: "https://randomuser.me/api/portraits/men/73.jpg",
-    email: "daniel.lewis@example.com",
-    phone: "+1 555-3149",
-    inroom: "False",
+    experiences: [
+      { experience: "Network Setup", description: "", startDate: "2021-09-05", endDate: "2023-11-05" }
+    ]
   },
   {
-    name: "Evelyn Walker",
-    role: "Receptionist",
-    photo: "https://randomuser.me/api/portraits/women/36.jpg",
-    email: "evelyn.walker@example.com",
-    phone: "+1 555-2441",
+    name: "Karim El Amrani",
+    email: "karim.elamrani@example.com",
+    phone: "0654321987",
     inroom: "False",
-  },
-  {
-    name: "Henry Young",
+    photo: "https://randomuser.me/api/portraits/men/10.jpg",
     role: "Manager",
-    photo: "https://randomuser.me/api/portraits/men/9.jpg",
-    email: "henry.young@example.com",
-    phone: "+1 555-7766",
+    experiences: [
+      { experience: "Office Management", description: "", startDate: "2020-01-01", endDate: "2023-08-18" }
+    ]
+  },
+  {
+    name: "Safae Redouani",
+    email: "safae.redouani@example.com",
+    phone: "0612233445",
     inroom: "False",
+    photo: "https://randomuser.me/api/portraits/women/11.jpg",
+    role: "Receptionist",
+    experiences: [
+      { experience: "Call Handling", description: "", startDate: "2022-02-10", endDate: "2024-02-10" }
+    ]
+  },
+  {
+    name: "Bilal Khatabi",
+    email: "bilal.khatabi@example.com",
+    phone: "0677889900",
+    inroom: "False",
+    photo: "https://randomuser.me/api/portraits/men/12.jpg",
+    role: "Security Team",
+    experiences: [
+      { experience: "Gate Control", description: "", startDate: "2021-04-01", endDate: "2023-10-01" }
+    ]
+  },
+  {
+    name: "Amina Naji",
+    email: "amina.naji@example.com",
+    phone: "0644567890",
+    inroom: "False",
+    photo: "https://randomuser.me/api/portraits/women/13.jpg",
+    role: "Cleaning Team",
+    experiences: [
+      { experience: "Office Dusting", description: "", startDate: "2023-01-05", endDate: "2025-06-20" }
+    ]
+  },
+  {
+    name: "Fouad Boulif",
+    email: "fouad.boulif@example.com",
+    phone: "0695544332",
+    inroom: "False",
+    photo: "https://randomuser.me/api/portraits/men/14.jpg",
+    role: "IT Technician",
+    experiences: [
+      { experience: "Virus Removal", description: "", startDate: "2022-06-01", endDate: "2024-08-01" }
+    ]
+  },
+  {
+    name: "Khadija Messaoud",
+    email: "khadija.messaoud@example.com",
+    phone: "0611223399",
+    inroom: "False",
+    photo: "https://randomuser.me/api/portraits/women/15.jpg",
+    role: "Manager",
+    experiences: [
+      { experience: "Project Coordination", description: "", startDate: "2021-01-01", endDate: "2023-12-31" }
+    ]
+  },
+  {
+    name: "Ismail Berrada",
+    email: "ismail.berrada@example.com",
+    phone: "0623377221",
+    inroom: "False",
+    photo: "https://randomuser.me/api/portraits/men/16.jpg",
+    role: "Receptionist",
+    experiences: [
+      { experience: "Visitor Registration", description: "", startDate: "2023-02-01", endDate: "2024-11-01" }
+    ]
+  },
+  {
+    name: "Zineb Choukri",
+    email: "zineb.choukri@example.com",
+    phone: "0603456789",
+    inroom: "False",
+    photo: "https://randomuser.me/api/portraits/women/17.jpg",
+    role: "Security Team",
+    experiences: [
+      { experience: "Badge Checking", description: "", startDate: "2020-06-01", endDate: "2022-06-01" }
+    ]
+  },
+  {
+    name: "Hicham Lahlou",
+    email: "hicham.lahlou@example.com",
+    phone: "0677324455",
+    inroom: "False",
+    photo: "https://randomuser.me/api/portraits/men/18.jpg",
+    role: "Cleaning Team",
+    experiences: [
+      { experience: "Floor Polishing", description: "", startDate: "2023-01-10", endDate: "2025-01-10" }
+    ]
+  },
+  {
+    name: "Imane Ouhayoun",
+    email: "imane.ouhayoun@example.com",
+    phone: "0618899002",
+    inroom: "False",
+    photo: "https://randomuser.me/api/portraits/women/19.jpg",
+    role: "IT Technician",
+    experiences: [
+      { experience: "Software Installations", description: "", startDate: "2022-03-15", endDate: "2024-03-15" }
+    ]
   }
 ];
 
@@ -177,7 +233,7 @@ let addingcounter = 1
   const Serverroom = document.getElementById('Serverroom');
   const Reception = document.getElementById('Reception');
   const Conferenceroom = document.getElementById('Conferenceroom');
-  const aside = document.getElementById('aside');
+  const aside = document.getElementById('aaside');
 
 // global array
   const GlobalArray = [];
@@ -235,9 +291,9 @@ closeform.addEventListener('click', ()=> {
              placeholder="Description" required>
       <div class="flex justify-around items-center">
         <label for="start">Start</label>
-        <input id="start" type="date" class="border ml-3 mr-3 border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+        <input type="date" class="start border ml-3 mr-3 border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
         <label for="end">End</label>
-        <input id="end" type="date" class="border ml-3 border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+        <input type="date" class="end border ml-3 border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
       </div>
       </div>
     
@@ -255,60 +311,67 @@ closeform.addEventListener('click', ()=> {
 
 
 //nakhod l values
-const addEmployee = document.getElementById('addEmployee');
+employeeForm.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-employeeForm.addEventListener('submit', (e)=>{
-e.preventDefault();
-addForm.classList.add('hidden')
+  const Experiences = [];
+
+  addForm.classList.add('hidden');
+
   const formname = document.getElementById('formname').value.trim();
   const formphone = document.getElementById('formphone').value.trim();
   const formemail = document.getElementById('formemail').value.trim();
   const formrole = document.getElementById('formrole').value.trim();
   const photo = document.getElementById('photo').value.trim();
+
   const formexper = document.querySelectorAll('.Experience');
   const formDescription = document.querySelectorAll('.Description');
+  const formStart = document.querySelectorAll('.start');
+  const formEnd = document.querySelectorAll('.end');
+
+
+  formexper.forEach((expInput, index) => {
+    Experiences.push({
+      experience: expInput.value,
+      description: formDescription[index].value,
+      startDate: formStart[index].value,
+      endDate: formEnd[index].value
+    });
+  });
 
   GlobalArray.push({
-    name: `${formname}`,
-    role: `${formrole}`,
-    photo: `${photo}`,
-    email: `${formemail}`,
-    phone: `${formphone}`,
-    Experiences: `${formexper}`,
-    Experiencesdescription: `${formDescription}`,
-  })
+    name: formname,
+    role: formrole,
+    photo: photo,
+    email: formemail,
+    phone: formphone,
+    experiences: Experiences
+  });
 
-  console.log(GlobalArray)
-  let counter = 1 ;
-  
-    const newdiv = document.createElement('div')
-    newdiv.classList = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl h-24 p-3 lg:w-[90%] w-[95%] lg:h-20 m-2 hover:shadow-lg transition'
-    newdiv.id = `div${counter}`
-    newdiv.innerHTML = `  
-        <img src="${photo}" class="w-12 h-12 rounded-full object-cover border" alt="Employee img">
-                <div class="flex justify-between w-[100%] p-1">
-                <div class="flex flex-col items-center gap-5">
-                    <h1 class="text-sm font-semibold text-gray-800">${formname}</h1>
-                    <h2>${formrole}</h2>
-                    <button id="btn${counter}">
-                        <img class="w-5 h-5" src="./Images/addposi.png" alt="add btn">
-                    </button>
-    `
-    aside.prepend(newdiv)
-    const deletebtn = document.getElementById(`btn${counter}`)
-    deletebtn.addEventListener('click', ()=>{
-    const divtoremove = document.getElementById(`div${counter}`);
-    divtoremove.remove()
-    })
-    photo.value = "";
-    formrole.value = "";
-    formemail.value = "";
-    formname.value = "";
-    formphone.value = "";
-    formexper.value = "";
-    formDescription.value = "";
-    counter++;
-})
+  console.log(GlobalArray);
+
+  let counter = GlobalArray.length;
+
+  const newdiv = document.createElement('div');
+  newdiv.className = 'flex items-center gap-3 bg-green-200 shadow-md rounded-xl h-[65%] p-3 lg:w-[100%] w-[90%] lg:h-20 m-1 hover:shadow-lg transition';
+  newdiv.id = `div${counter}`;
+
+  newdiv.innerHTML = `  
+        <img src="${photo}" class="w-10 h-10 rounded-full object-cover border" alt="Employee img">
+      <div class="flex flex-col justify-between w-[100%] p-1">
+        <h1 class="text-sm font-semibold text-gray-800">${formname}</h1>
+        <h2 class="text-sm font-semibold text-gray-700">${formrole}</h2>
+        <h2 class="text-sm font-semibold text-gray-700">Unassigned</h2>
+      </div>
+    `;
+
+  aside.prepend(newdiv);
+
+  // clear form
+  employeeForm.reset();
+  console.log(GlobalArray);
+});
+
 
 // Push only Managers
 
@@ -365,8 +428,8 @@ Conferenceroombtn.addEventListener("click", () => {
         `;
         employeelist.appendChild(newEmplyee);
 
-      const addBtn = document.getElementById(`addd${currentId}`);
-        addBtn.addEventListener('click', () => {
+      const addzz = document.getElementById(`addd${currentId}`);
+        addzz.addEventListener('click', () => {
             if(confrencercounter >= 6 ){
                 alert('Only 6 People are allowed to Enter this Room');
                 return;
@@ -393,7 +456,7 @@ Conferenceroombtn.addEventListener("click", () => {
             console.log(u.inroom)
             aside.innerHTML= ''
             displayUsers();
- //user info
+ 
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
             const infoclose = document.getElementById('infoclose');
@@ -403,8 +466,9 @@ Conferenceroombtn.addEventListener("click", () => {
                       inforole.innerHTML = u.role
                       infoemail.innerHTML = u.email
                       infophone.innerHTML = u.phone
+                      experienceinfo(u)
                   personalinfo.classList.remove('hidden')
-                infoclose.addEventListener('click', ()=>{
+                  infoclose.addEventListener('click', ()=>{
                   personalinfo.classList.add('hidden')
                   })
                 })
@@ -507,7 +571,7 @@ Receptionbtn.addEventListener("click", () => {
             const item2 = document.querySelector(`.item2`)
             item2.classList.remove('bg-red-300')
             }
-//user info
+
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
             const infoclose = document.getElementById('infoclose');
@@ -517,6 +581,7 @@ Receptionbtn.addEventListener("click", () => {
                       inforole.innerHTML = u.role
                       infoemail.innerHTML = u.email
                       infophone.innerHTML = u.phone
+                      experienceinfo(u)
                   personalinfo.classList.remove('hidden')
                 infoclose.addEventListener('click', ()=>{
                   personalinfo.classList.add('hidden')
@@ -627,7 +692,7 @@ Serverroombtn.addEventListener("click", () => {
             const item3 = document.querySelector(`.item3`)
             item3.classList.remove('bg-red-300')
             }
-  //user info
+            
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
             const infoclose = document.getElementById('infoclose');
@@ -637,6 +702,7 @@ Serverroombtn.addEventListener("click", () => {
                       inforole.innerHTML = u.role
                       infoemail.innerHTML = u.email
                       infophone.innerHTML = u.phone
+                      experienceinfo(u)
                   personalinfo.classList.remove('hidden')
                 infoclose.addEventListener('click', ()=>{
                   personalinfo.classList.add('hidden')
@@ -746,7 +812,7 @@ Securityroombtn.addEventListener("click", () => {
             const item4 = document.querySelector(`.item4`)
             item4.classList.remove('bg-red-300')
             }
-//user info
+
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
             const infoclose = document.getElementById('infoclose');
@@ -756,6 +822,7 @@ Securityroombtn.addEventListener("click", () => {
                       inforole.innerHTML = u.role
                       infoemail.innerHTML = u.email
                       infophone.innerHTML = u.phone
+                      experienceinfo(u)
                   personalinfo.classList.remove('hidden')
                 infoclose.addEventListener('click', ()=>{
                   personalinfo.classList.add('hidden')
@@ -860,7 +927,7 @@ Staffroombtn.addEventListener("click", () => {
             u.inroom = "True"
             aside.innerHTML= ''
             displayUsers();
-//user info
+
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
             const infoclose = document.getElementById('infoclose');
@@ -870,6 +937,7 @@ Staffroombtn.addEventListener("click", () => {
                       inforole.innerHTML = u.role
                       infoemail.innerHTML = u.email
                       infophone.innerHTML = u.phone
+                      experienceinfo(u)
                   personalinfo.classList.remove('hidden')
                 infoclose.addEventListener('click', ()=>{
                   personalinfo.classList.add('hidden')
@@ -977,7 +1045,7 @@ Archivesroombtn.addEventListener("click", () => {
                 const item6 = document.querySelector(`.item6`)
                 item6.classList.remove('bg-red-300')
                 }
-//user info
+
             const personalinfo = document.getElementById('personalinfo');
             const infobtn = document.getElementById(`useinfo${currentId}`)
             const infoclose = document.getElementById('infoclose');
@@ -987,6 +1055,7 @@ Archivesroombtn.addEventListener("click", () => {
                       inforole.innerHTML = u.role
                       infoemail.innerHTML = u.email
                       infophone.innerHTML = u.phone
+                      experienceinfo(u)
                   personalinfo.classList.remove('hidden')
                 infoclose.addEventListener('click', ()=>{
                   personalinfo.classList.add('hidden')
@@ -1029,16 +1098,13 @@ function displayUsers() {
     }
 
     const znewdiv = document.createElement('div');
-    znewdiv.classList =
-      'flex items-center gap-3 bg-green-200 shadow-md rounded-xl h-[65%] p-3 lg:w-[100%] w-[90%] lg:h-20 m-2 hover:shadow-lg transition';
-    znewdiv.id = `yy${counter1}`;
-
+    znewdiv.classList ='flex items-center gap-3 bg-green-200 shadow-md rounded-xl h-[65%] p-3 lg:w-[97%] w-[90%] lg:h-20 m-1 hover:shadow-lg transition';
     znewdiv.innerHTML = `
       <img src="${u.photo}" class="w-10 h-10 rounded-full object-cover border" alt="Employee img">
       <div class="flex flex-col justify-between w-[100%] p-1">
-        <h1 class="text-sm font-semibold text-gray-800">${u.name}</h1>
-        <h2 class="text-sm font-semibold text-gray-700">${u.role}</h2>
-        <h2 class="text-sm font-semibold text-gray-700">Unassigned</h2>
+        <h1 class="text-center text-sm font-semibold text-gray-800">${u.name}</h1>
+        <h2 class="text-center text-sm font-semibold text-gray-600">${u.role}</h2>
+        <h2 class="text-center text-sm font-semibold text-gray-600">Unassigned</h2>
       </div>
     `;
 
@@ -1047,7 +1113,20 @@ function displayUsers() {
     counter1++;
   });
 }
-
+function experienceinfo(array){
+  const newinfo = document.querySelector('.infoexperience');
+                  newinfo.innerHTML = ''
+                  array.experiences.forEach((uu)=>{
+                  const newinfodiv = document.createElement('div')
+                  newinfodiv.classList = 'flex flex-col'
+                  newinfodiv.innerHTML = `
+                     <h2 class="text-center text-black mt-2">Experiences</h2>
+                     <h3 class="text-center">${uu.experience}</h3>
+                     <h3 class="text-center">${uu.description}</h3>
+                  `
+                  newinfo.appendChild(newinfodiv)
+                })
+}
      //  <button type="button" id="removing${counter1}">
     //         <img class="h-5 w-5" src="./Images/supprimer.png" alt="close btn">
     //       </button>
