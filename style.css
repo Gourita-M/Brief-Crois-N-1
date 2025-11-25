@@ -4,12 +4,6 @@
     grid-template-columns: 1fr 3rem 1fr 1fr 1fr;
     grid-template-rows: 1fr 2rem 1fr;
 }
-main{
-    background-image: url(./Images/Vector\ Wooden\ Floor\ Decorative\ Background\ Wallpaper\ Image\ For\ Free\ Download\ -\ Pngtree.jpg);
-    background-size: cover;      /* makes the image FIT the box */
-    background-position: center; /* centers the image */
-    background-repeat: no-repeat;
-}
 .item1{
     grid-column: 1 / 4;
     border: 2px solid;

@@ -324,6 +324,13 @@ employeeForm.addEventListener('submit', (e) => {
   const formrole = document.getElementById('formrole').value.trim();
   const photo = document.getElementById('photo').value.trim();
 
+  if(formphone.length < 10){
+    console.log('Phone Number Can not be -10 numbers ')
+    return
+  }else if(formphone.length > 10){
+    console.log('Phone Number Can not be +10 numbers');
+    return
+  }
   const formexper = document.querySelectorAll('.Experience');
   const formDescription = document.querySelectorAll('.Description');
   const formStart = document.querySelectorAll('.start');
@@ -361,30 +368,22 @@ employeeForm.addEventListener('submit', (e) => {
       <div class="flex flex-col justify-between w-[100%] p-1">
         <h1 class="text-sm font-semibold text-gray-800">${formname}</h1>
         <h2 class="text-sm font-semibold text-gray-700">${formrole}</h2>
-        <h2 class="text-sm font-semibold text-gray-700">Unassigned</h2>
       </div>
     `;
 
   aside.prepend(newdiv);
 
-  // clear form
   employeeForm.reset();
-  console.log(GlobalArray);
 });
 
 
-// Push only Managers
-
-console.log(GlobalArray);
-
-// For emplyee list Pop up
 const Conferenceroombtn = document.getElementById('Conferenceroombtn');
 const popup = document.getElementById("availableEmployeesPopup");
 const closeBtn = document.getElementById("closeEmployeesPopup");
 const employeelist = document.getElementById("employeelist");
 const confrensvisi = document.querySelector('.confrensvisi');
 
-// List of availlbl Conference Room
+// Conference Room
 let confrencercounter = 0;
 let emplyeeaddid = 1
 
@@ -639,7 +638,7 @@ Serverroombtn.addEventListener("click", () => {
     );
 
     arraytemp.forEach(u => {
-      if(u.inroom === 'True'){ //inroom: "False",
+      if(u.inroom === 'True'){
           return
       }
       else{
@@ -963,7 +962,6 @@ Staffroombtn.addEventListener("click", () => {
     });
 });
 
-// Close popup
 closeBtn.addEventListener("click", () => {
     popup.classList.add("hidden");
     employeelist.innerHTML = "";
@@ -1098,18 +1096,17 @@ function displayUsers() {
     }
 
     const znewdiv = document.createElement('div');
-    znewdiv.classList ='flex items-center gap-3 bg-green-200 shadow-md rounded-xl h-[65%] p-3 lg:w-[97%] w-[90%] lg:h-20 m-1 hover:shadow-lg transition';
+    znewdiv.classList ='flex items-center gap-3 bg-green-200 shadow-md rounded-xl h-[65%] p-3 lg:w-[97%] w-[90%] lg:h-16 h-20 m-1 hover:shadow-lg transition';
     znewdiv.innerHTML = `
-      <img src="${u.photo}" class="w-10 h-10 rounded-full object-cover border" alt="Employee img">
+      <img src="${u.photo}" class="w-10 h-10 rounded-full border" alt="Employee img">
       <div class="flex flex-col justify-between w-[100%] p-1">
         <h1 class="text-center text-sm font-semibold text-gray-800">${u.name}</h1>
         <h2 class="text-center text-sm font-semibold text-gray-600">${u.role}</h2>
-        <h2 class="text-center text-sm font-semibold text-gray-600">Unassigned</h2>
       </div>
     `;
 
     aside.appendChild(znewdiv);
-
+    
     counter1++;
   });
 }

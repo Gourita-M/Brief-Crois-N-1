@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>WorkSphere - Virtual Workspace</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="./style.css">
 </head>
@@ -101,9 +101,9 @@
         Name, role, email, phone number, experience, current location -->
     <aside class="">
         <div class="flex justify-center items-center">
-            <button class="bg-green-400 bg-opacity-30 w-40 m-1 p-1 rounded-lg" id="addFormbtn">Add New Emplyee</button>
+            <button class="bg-orange-500 hover:bg-orange-400 bg-opacity-80 w-40 m-1 p-1 rounded-lg" id="addFormbtn">Add New Emplyee</button>
         </div>
-        <h1>not su</h1>
+        <h1 class="text-center">Unassigned List</h1>
         <div id="aaside" class="grid grid-cols-3 lg:grid-cols-1 lg:grid-row-6 lg:overflow-x-auto overflow-y-auto lg:w-[100%] lg:h-[90vh] h-[17vh] bg-white rounded-lg m-1 shadow-lg"> 
         </div>
     </aside>
@@ -114,7 +114,9 @@
             <div class="rounded-xl p-6 bg-white w-full max-w-lg max-h-[90%] overflow-y-auto"> 
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-semibold">Available Employees</h2>
-                    <button id="closeEmployeesPopup" class="text-gray-600 text-2xl hover:text-red-600">&times;</button>
+                    <button id="closeEmployeesPopup" class="text-gray-600 text-2xl hover:text-red-600">
+                        <img class="h-5 w-5" src="./Images/supprimer.png" alt="X remove Button">
+                    </button>
                 </div>
                 <div id="employeelist" class="flex flex-col gap-3">
 
