@@ -140,8 +140,6 @@ const users = [
       { experience: "Staff Training", description: "Trained new employees in workplace procedures", startDate: "2019-01-01", endDate: "2020-01-01" }
     ]
   },
-
-  // ---- I will continue the rest if you confirm. ----
 ];
 
 
@@ -149,7 +147,7 @@ let counter1 = 1
 let addingcounter = 1
 
 //rooms
-  const Archivesroom = document.getElementById('Archivesroom');//Archivesroom
+  const Archivesroom = document.getElementById('Archivesroom');
   const Staffroom = document.getElementById('Staffroom');
   const Securityroom = document.getElementById('Securityroom');
   const Serverroom = document.getElementById('Serverroom');
@@ -185,15 +183,6 @@ addFormbtn.addEventListener('click', ()=> {
 closeform.addEventListener('click', ()=> {
   addForm.classList.add('hidden')
 })
-// linki l url me3a l Photo 
-  const photoInput = document.getElementById('photo');
-  const photoPreview = document.getElementById('photoPreview');
-
-  photoInput.addEventListener('input', () => {
-    if (photoInput.value.trim() !== "") {
-      photoPreview.src = photoInput.value;
-    }
-  });
 
  // experianc
   const container = document.getElementById("experienceContainer");
@@ -232,7 +221,6 @@ closeform.addEventListener('click', ()=> {
     });
   });
 
-
 //nakhod l values
 employeeForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -248,10 +236,10 @@ employeeForm.addEventListener('submit', (e) => {
   const photo = document.getElementById('photo').value.trim();
 
   if(formphone.length < 10){
-    console.log('Phone Number Can not be -10 numbers ')
+    alert('Phone Number Can not be -10 numbers ')
     return
   }else if(formphone.length > 10){
-    console.log('Phone Number Can not be +10 numbers');
+    alert('Phone Number Can not be +10 numbers');
     return
   }
   const formexper = document.querySelectorAll('.Experience');
@@ -277,8 +265,6 @@ employeeForm.addEventListener('submit', (e) => {
     phone: formphone,
     experiences: Experiences
   });
-
-  console.log(GlobalArray);
 
   let counter = GlobalArray.length;
 
@@ -376,7 +362,6 @@ Conferenceroombtn.addEventListener("click", () => {
             confrensvisi.textContent = `${confrencercounter}/4`
             u.inroom = "True"
             u.current = "Conference Room"
-            console.log(u.inroom)
             aside.innerHTML= ''
             displayUsers();
  
@@ -404,7 +389,6 @@ Conferenceroombtn.addEventListener("click", () => {
                 confrensvisi.textContent = `${confrencercounter}/4`
                 u.inroom = "False"
                 u.current = "None"
-                console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
             })
@@ -522,7 +506,6 @@ Receptionbtn.addEventListener("click", () => {
                 Receptivisi.textContent = `${Receptioncounter}/3`
                 u.inroom = "False"
                 u.current = "None"
-                console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
                 if(Receptioncounter === 0){
@@ -646,7 +629,6 @@ Serverroombtn.addEventListener("click", () => {
                 Servervisi.textContent = `${Serverroomcounter}/2`
                 u.inroom = "False"
                 u.current = "None"
-                console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
                 if(Serverroomcounter === 0){
@@ -769,7 +751,6 @@ Securityroombtn.addEventListener("click", () => {
                 Securityvisi.textContent = `${securityroomcounter}/2`
                 u.inroom = "False"
                 u.current = "None"
-                console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
                 if(securityroomcounter === 0){
@@ -887,7 +868,6 @@ Staffroombtn.addEventListener("click", () => {
                 Staffvisi.textContent = `${staffroomcounter}/2`
                 u.inroom = "False"
                 u.current = "None"
-                console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
             })
@@ -1007,7 +987,6 @@ Archivesroombtn.addEventListener("click", () => {
                 Archivesvisi.textContent = `${Archivesroomcounter}/2`
                 u.inroom = "False"
                 u.current = "None"
-                console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
                 if(Archivesroomcounter === 0){
@@ -1057,7 +1036,6 @@ function experienceinfo(array){
                   array.experiences.forEach((uu)=>{
                     let startyear = new Date(uu.startDate).getFullYear();
                     let endyear = new Date(uu.endDate).getFullYear();
-                    console.log(startyear)
                   const newinfodiv = document.createElement('div')
                   newinfodiv.classList = 'flex flex-col'
                   newinfodiv.innerHTML = `
