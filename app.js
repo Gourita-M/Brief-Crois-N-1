@@ -2,27 +2,19 @@
 
 const users = [
   {
-    name: "Ash Awa Biti",
-    email: "mouad.gout@ggjg.com",
-    phone: "453453",
-    inroom: "False",
-    photo: "https://postimg.cc/fSQKRNV3",
-    role: "Manager",
-    experiences: [
-      { experience: "gerge", description: "", startDate: "2025-11-11", endDate: "2025-11-29" }
-    ]
-  },
-  {
     name: "Lina Farouk",
     email: "lina.farouk@example.com",
     phone: "0623123401",
     inroom: "False",
     photo: "https://randomuser.me/api/portraits/women/1.jpg",
     role: "Receptionist",
+    current: "none",
     experiences: [
-      { experience: "Customer Support", description: "Front desk", startDate: "2024-01-10", endDate: "2025-05-20" }
+      { experience: "Customer Support", description: "Front desk assistance and guiding visitors", startDate: "2024-01-10", endDate: "2025-05-20" },
+      { experience: "Appointment Scheduling", description: "Handled daily bookings and meeting arrangements", startDate: "2023-05-01", endDate: "2024-01-01" }
     ]
   },
+
   {
     name: "Adam Benali",
     email: "adam.benali@example.com",
@@ -30,10 +22,13 @@ const users = [
     inroom: "False",
     photo: "https://randomuser.me/api/portraits/men/2.jpg",
     role: "IT Technician",
+    current: "none",
     experiences: [
-      { experience: "Hardware Fixing", description: "", startDate: "2023-02-12", endDate: "2024-11-01" }
+      { experience: "Hardware Fixing", description: "Repaired computers, printers, and office equipment", startDate: "2023-02-12", endDate: "2024-11-01" },
+      { experience: "Software Troubleshooting", description: "Installed and configured company software", startDate: "2022-04-01", endDate: "2023-02-10" }
     ]
   },
+
   {
     name: "Sara Madi",
     email: "sara.madi@example.com",
@@ -41,10 +36,13 @@ const users = [
     inroom: "False",
     photo: "https://randomuser.me/api/portraits/women/3.jpg",
     role: "Security Team",
+    current: "none",
     experiences: [
-      { experience: "CCTV Monitoring", description: "", startDate: "2022-05-01", endDate: "2024-07-15" }
+      { experience: "CCTV Monitoring", description: "Supervised security cameras and incident reporting", startDate: "2022-05-01", endDate: "2024-07-15" },
+      { experience: "Visitor Screening", description: "Checked badges and controlled gate entry", startDate: "2021-03-01", endDate: "2022-05-01" }
     ]
   },
+
   {
     name: "Yassine Toumi",
     email: "yassine.toumi@example.com",
@@ -52,10 +50,13 @@ const users = [
     inroom: "False",
     photo: "https://randomuser.me/api/portraits/men/4.jpg",
     role: "Cleaning Team",
+    current: "none",
     experiences: [
-      { experience: "Building Maintenance", description: "", startDate: "2021-01-01", endDate: "2023-01-01" }
+      { experience: "Building Maintenance", description: "Handled trash disposal and workspace upkeep", startDate: "2021-01-01", endDate: "2023-01-01" },
+      { experience: "Equipment Cleaning", description: "Cleaned meeting rooms and office equipment", startDate: "2020-05-01", endDate: "2021-01-01" }
     ]
   },
+
   {
     name: "Nadia Rahou",
     email: "nadia.rahou@example.com",
@@ -63,10 +64,13 @@ const users = [
     inroom: "False",
     photo: "https://randomuser.me/api/portraits/women/5.jpg",
     role: "Receptionist",
+    current: "none",
     experiences: [
-      { experience: "Guest Handling", description: "", startDate: "2020-08-10", endDate: "2023-05-20" }
+      { experience: "Guest Handling", description: "Welcomed visitors and provided directions", startDate: "2020-08-10", endDate: "2023-05-20" },
+      { experience: "Phone Reception", description: "Managed incoming calls and transferred messages", startDate: "2019-02-01", endDate: "2020-08-10" }
     ]
   },
+
   {
     name: "Omar Idrissi",
     email: "omar.idrissi@example.com",
@@ -74,10 +78,13 @@ const users = [
     inroom: "False",
     photo: "https://randomuser.me/api/portraits/men/6.jpg",
     role: "Manager",
+    current: "none",
     experiences: [
-      { experience: "Team Leader", description: "", startDate: "2021-03-14", endDate: "2024-12-20" }
+      { experience: "Team Leader", description: "Supervised IT and admin teams", startDate: "2021-03-14", endDate: "2024-12-20" },
+      { experience: "Budget Planning", description: "Managed annual department budgets", startDate: "2020-01-01", endDate: "2021-03-14" }
     ]
   },
+
   {
     name: "Rania Tahiri",
     email: "rania.tahiri@example.com",
@@ -85,10 +92,13 @@ const users = [
     inroom: "False",
     photo: "https://randomuser.me/api/portraits/women/7.jpg",
     role: "Security Team",
+    current: "none",
     experiences: [
-      { experience: "Office Patrol", description: "", startDate: "2023-07-01", endDate: "2025-01-10" }
+      { experience: "Office Patrol", description: "Performed regular patrol rounds inside the building", startDate: "2023-07-01", endDate: "2025-01-10" },
+      { experience: "Emergency Response", description: "Assisted during fire drills and safety procedures", startDate: "2022-01-01", endDate: "2023-07-01" }
     ]
   },
+
   {
     name: "Hamza Mouline",
     email: "hamza.mouline@example.com",
@@ -96,10 +106,13 @@ const users = [
     inroom: "False",
     photo: "https://randomuser.me/api/portraits/men/8.jpg",
     role: "Cleaning Team",
+    current: "none",
     experiences: [
-      { experience: "Deep Cleaning", description: "", startDate: "2022-10-01", endDate: "2024-03-01" }
+      { experience: "Deep Cleaning", description: "Maintained carpets, floors, and high-traffic areas", startDate: "2022-10-01", endDate: "2024-03-01" },
+      { experience: "Sanitization", description: "Disinfected desks and shared equipment", startDate: "2021-01-01", endDate: "2022-10-01" }
     ]
   },
+
   {
     name: "Meryem Zahidi",
     email: "meryem.zahidi@example.com",
@@ -107,10 +120,13 @@ const users = [
     inroom: "False",
     photo: "https://randomuser.me/api/portraits/women/9.jpg",
     role: "IT Technician",
+    current: "none",
     experiences: [
-      { experience: "Network Setup", description: "", startDate: "2021-09-05", endDate: "2023-11-05" }
+      { experience: "Network Setup", description: "Installed routers, switches, and Ethernet lines", startDate: "2021-09-05", endDate: "2023-11-05" },
+      { experience: "Server Monitoring", description: "Checked server performance and daily backups", startDate: "2020-04-01", endDate: "2021-09-05" }
     ]
   },
+
   {
     name: "Karim El Amrani",
     email: "karim.elamrani@example.com",
@@ -118,110 +134,16 @@ const users = [
     inroom: "False",
     photo: "https://randomuser.me/api/portraits/men/10.jpg",
     role: "Manager",
+    current: "none",
     experiences: [
-      { experience: "Office Management", description: "", startDate: "2020-01-01", endDate: "2023-08-18" }
+      { experience: "Office Management", description: "Coordinated departments and supervised schedules", startDate: "2020-01-01", endDate: "2023-08-18" },
+      { experience: "Staff Training", description: "Trained new employees in workplace procedures", startDate: "2019-01-01", endDate: "2020-01-01" }
     ]
   },
-  {
-    name: "Safae Redouani",
-    email: "safae.redouani@example.com",
-    phone: "0612233445",
-    inroom: "False",
-    photo: "https://randomuser.me/api/portraits/women/11.jpg",
-    role: "Receptionist",
-    experiences: [
-      { experience: "Call Handling", description: "", startDate: "2022-02-10", endDate: "2024-02-10" }
-    ]
-  },
-  {
-    name: "Bilal Khatabi",
-    email: "bilal.khatabi@example.com",
-    phone: "0677889900",
-    inroom: "False",
-    photo: "https://randomuser.me/api/portraits/men/12.jpg",
-    role: "Security Team",
-    experiences: [
-      { experience: "Gate Control", description: "", startDate: "2021-04-01", endDate: "2023-10-01" }
-    ]
-  },
-  {
-    name: "Amina Naji",
-    email: "amina.naji@example.com",
-    phone: "0644567890",
-    inroom: "False",
-    photo: "https://randomuser.me/api/portraits/women/13.jpg",
-    role: "Cleaning Team",
-    experiences: [
-      { experience: "Office Dusting", description: "", startDate: "2023-01-05", endDate: "2025-06-20" }
-    ]
-  },
-  {
-    name: "Fouad Boulif",
-    email: "fouad.boulif@example.com",
-    phone: "0695544332",
-    inroom: "False",
-    photo: "https://randomuser.me/api/portraits/men/14.jpg",
-    role: "IT Technician",
-    experiences: [
-      { experience: "Virus Removal", description: "", startDate: "2022-06-01", endDate: "2024-08-01" }
-    ]
-  },
-  {
-    name: "Khadija Messaoud",
-    email: "khadija.messaoud@example.com",
-    phone: "0611223399",
-    inroom: "False",
-    photo: "https://randomuser.me/api/portraits/women/15.jpg",
-    role: "Manager",
-    experiences: [
-      { experience: "Project Coordination", description: "", startDate: "2021-01-01", endDate: "2023-12-31" }
-    ]
-  },
-  {
-    name: "Ismail Berrada",
-    email: "ismail.berrada@example.com",
-    phone: "0623377221",
-    inroom: "False",
-    photo: "https://randomuser.me/api/portraits/men/16.jpg",
-    role: "Receptionist",
-    experiences: [
-      { experience: "Visitor Registration", description: "", startDate: "2023-02-01", endDate: "2024-11-01" }
-    ]
-  },
-  {
-    name: "Zineb Choukri",
-    email: "zineb.choukri@example.com",
-    phone: "0603456789",
-    inroom: "False",
-    photo: "https://randomuser.me/api/portraits/women/17.jpg",
-    role: "Security Team",
-    experiences: [
-      { experience: "Badge Checking", description: "", startDate: "2020-06-01", endDate: "2022-06-01" }
-    ]
-  },
-  {
-    name: "Hicham Lahlou",
-    email: "hicham.lahlou@example.com",
-    phone: "0677324455",
-    inroom: "False",
-    photo: "https://randomuser.me/api/portraits/men/18.jpg",
-    role: "Cleaning Team",
-    experiences: [
-      { experience: "Floor Polishing", description: "", startDate: "2023-01-10", endDate: "2025-01-10" }
-    ]
-  },
-  {
-    name: "Imane Ouhayoun",
-    email: "imane.ouhayoun@example.com",
-    phone: "0618899002",
-    inroom: "False",
-    photo: "https://randomuser.me/api/portraits/women/19.jpg",
-    role: "IT Technician",
-    experiences: [
-      { experience: "Software Installations", description: "", startDate: "2022-03-15", endDate: "2024-03-15" }
-    ]
-  }
+
+  // ---- I will continue the rest if you confirm. ----
 ];
+
 
 let counter1 = 1
 let addingcounter = 1
@@ -248,6 +170,7 @@ const inforole = document.getElementById('inforole')
 const infoemail = document.getElementById('infoemail')
 const infophone = document.getElementById('infophone')
 const userimage = document.getElementById('userimage')
+const inforoom = document.getElementById('inforoom')
 
 
 
@@ -285,7 +208,7 @@ closeform.addEventListener('click', ()=> {
       <div class="flex flex-col w-[80%] gap-4 ml-10">
       <input type="text"
              class="Experience flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-             placeholder="Experience (ex: 2 years at Google)" required>
+             placeholder="Experience" required>
       <input type="text"
              class="Description flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
              placeholder="Description" required>
@@ -390,8 +313,8 @@ let emplyeeaddid = 1
 Conferenceroombtn.addEventListener("click", () => {
     popup.classList.remove("hidden");
 
-    if(confrencercounter >= 6 ){
-        alert('Only 6 People are allowed to Enter this Room');
+    if(confrencercounter >= 4 ){
+        alert('Only 4 People are allowed to Enter this Room');
         popup.classList.add("hidden");
         return;
     }
@@ -429,8 +352,8 @@ Conferenceroombtn.addEventListener("click", () => {
 
       const addzz = document.getElementById(`addd${currentId}`);
         addzz.addEventListener('click', () => {
-            if(confrencercounter >= 6 ){
-                alert('Only 6 People are allowed to Enter this Room');
+            if(confrencercounter >= 4 ){
+                alert('Only 4 People are allowed to Enter this Room');
                 return;
             }
             newEmplyee.innerHTML = `
@@ -450,8 +373,9 @@ Conferenceroombtn.addEventListener("click", () => {
         `;
             Conferenceroom.appendChild(newEmplyee);
             confrencercounter++;
-            confrensvisi.textContent = `${confrencercounter}/6`
+            confrensvisi.textContent = `${confrencercounter}/4`
             u.inroom = "True"
+            u.current = "Conference Room"
             console.log(u.inroom)
             aside.innerHTML= ''
             displayUsers();
@@ -465,6 +389,7 @@ Conferenceroombtn.addEventListener("click", () => {
                       inforole.innerHTML = u.role
                       infoemail.innerHTML = u.email
                       infophone.innerHTML = u.phone
+                      inforoom.textContent = u.current
                       experienceinfo(u)
                   personalinfo.classList.remove('hidden')
                   infoclose.addEventListener('click', ()=>{
@@ -476,8 +401,9 @@ Conferenceroombtn.addEventListener("click", () => {
             removebbt.addEventListener('click', (e)=> {
                 document.getElementById(`d-${currentId}`).remove()
                 confrencercounter--;
-                confrensvisi.textContent = `${confrencercounter}/6`
+                confrensvisi.textContent = `${confrencercounter}/4`
                 u.inroom = "False"
+                u.current = "None"
                 console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
@@ -564,6 +490,7 @@ Receptionbtn.addEventListener("click", () => {
             Receptioncounter++;
             Receptivisi.textContent = `${Receptioncounter}/3`
             u.inroom = "True"
+            u.current = "Reception Room"
             aside.innerHTML= ''
             displayUsers();
             if(Receptioncounter > 0){
@@ -580,6 +507,7 @@ Receptionbtn.addEventListener("click", () => {
                       inforole.innerHTML = u.role
                       infoemail.innerHTML = u.email
                       infophone.innerHTML = u.phone
+                      inforoom.textContent = u.current
                       experienceinfo(u)
                   personalinfo.classList.remove('hidden')
                 infoclose.addEventListener('click', ()=>{
@@ -593,6 +521,7 @@ Receptionbtn.addEventListener("click", () => {
                 Receptioncounter--;
                 Receptivisi.textContent = `${Receptioncounter}/3`
                 u.inroom = "False"
+                u.current = "None"
                 console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
@@ -685,6 +614,7 @@ Serverroombtn.addEventListener("click", () => {
             Serverroomcounter++;
             Servervisi.textContent = `${Serverroomcounter}/2`
             u.inroom = "True"
+            u.current = "Server Room"
             aside.innerHTML= ''
             displayUsers();
             if(Serverroomcounter > 0){
@@ -701,6 +631,7 @@ Serverroombtn.addEventListener("click", () => {
                       inforole.innerHTML = u.role
                       infoemail.innerHTML = u.email
                       infophone.innerHTML = u.phone
+                      inforoom.textContent = u.current
                       experienceinfo(u)
                   personalinfo.classList.remove('hidden')
                 infoclose.addEventListener('click', ()=>{
@@ -714,6 +645,7 @@ Serverroombtn.addEventListener("click", () => {
                 Serverroomcounter--;
                 Servervisi.textContent = `${Serverroomcounter}/2`
                 u.inroom = "False"
+                u.current = "None"
                 console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
@@ -805,6 +737,7 @@ Securityroombtn.addEventListener("click", () => {
             securityroomcounter++;
             Securityvisi.textContent = `${securityroomcounter}/2`
             u.inroom = "True"
+            u.current = "Security Room"
             aside.innerHTML= ''
             displayUsers();
             if(securityroomcounter > 0){
@@ -821,6 +754,7 @@ Securityroombtn.addEventListener("click", () => {
                       inforole.innerHTML = u.role
                       infoemail.innerHTML = u.email
                       infophone.innerHTML = u.phone
+                      inforoom.textContent = u.current
                       experienceinfo(u)
                   personalinfo.classList.remove('hidden')
                 infoclose.addEventListener('click', ()=>{
@@ -834,6 +768,7 @@ Securityroombtn.addEventListener("click", () => {
                 securityroomcounter--;
                 Securityvisi.textContent = `${securityroomcounter}/2`
                 u.inroom = "False"
+                u.current = "None"
                 console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
@@ -924,6 +859,7 @@ Staffroombtn.addEventListener("click", () => {
             staffroomcounter++;
             Staffvisi.textContent = `${staffroomcounter}/2`
             u.inroom = "True"
+            u.current = "Personnel Room"
             aside.innerHTML= ''
             displayUsers();
 
@@ -936,6 +872,7 @@ Staffroombtn.addEventListener("click", () => {
                       inforole.innerHTML = u.role
                       infoemail.innerHTML = u.email
                       infophone.innerHTML = u.phone
+                      inforoom.textContent = u.current
                       experienceinfo(u)
                   personalinfo.classList.remove('hidden')
                 infoclose.addEventListener('click', ()=>{
@@ -949,6 +886,7 @@ Staffroombtn.addEventListener("click", () => {
                 staffroomcounter--;
                 Staffvisi.textContent = `${staffroomcounter}/2`
                 u.inroom = "False"
+                u.current = "None"
                 console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
@@ -1037,6 +975,7 @@ Archivesroombtn.addEventListener("click", () => {
             Archivesroomcounter++;
             Archivesvisi.textContent = `${Archivesroomcounter}/2`
             u.inroom = "True"
+            u.current = "Archives Room"
             aside.innerHTML= ''
             displayUsers();
             if(Archivesroomcounter > 0){
@@ -1053,6 +992,7 @@ Archivesroombtn.addEventListener("click", () => {
                       inforole.innerHTML = u.role
                       infoemail.innerHTML = u.email
                       infophone.innerHTML = u.phone
+                      inforoom.textContent = u.current
                       experienceinfo(u)
                   personalinfo.classList.remove('hidden')
                 infoclose.addEventListener('click', ()=>{
@@ -1066,6 +1006,7 @@ Archivesroombtn.addEventListener("click", () => {
                 Archivesroomcounter--;
                 Archivesvisi.textContent = `${Archivesroomcounter}/2`
                 u.inroom = "False"
+                u.current = "None"
                 console.log(u.inroom)
                 aside.innerHTML= ''
                 displayUsers();
@@ -1114,11 +1055,14 @@ function experienceinfo(array){
   const newinfo = document.querySelector('.infoexperience');
                   newinfo.innerHTML = ''
                   array.experiences.forEach((uu)=>{
+                    let startyear = new Date(uu.startDate).getFullYear();
+                    let endyear = new Date(uu.endDate).getFullYear();
+                    console.log(startyear)
                   const newinfodiv = document.createElement('div')
                   newinfodiv.classList = 'flex flex-col'
                   newinfodiv.innerHTML = `
                      <h2 class="text-center text-black mt-2">Experiences</h2>
-                     <h3 class="text-center">${uu.experience}</h3>
+                     <h3 class="text-center">${uu.experience} : <b>${startyear}</b>-<b>${endyear}</b></h3>
                      <h3 class="text-center">${uu.description}</h3>
                   `
                   newinfo.appendChild(newinfodiv)
